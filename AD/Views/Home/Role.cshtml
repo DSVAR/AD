@@ -1,18 +1,33 @@
-﻿@{
-    ViewData["Title"] = "Role";
+﻿ @{
+     ViewData["Title"] = "Role";
 }
-@Model 
+
 <div>
-    <div>
-        @User.Identity.AuthenticationType
-        @* @Model.Name; *@
-        @Model.UserName
-    </div>
-    <div>
-
-    </div>
-    <div>
-
-    </div>
-
+    @Model.Email
 </div>
+
+
+<form method="post" action="/Home/Creation">
+    <div class="grid-are ">
+        <div class="colum">
+            <p>Пользователь</p>
+        </div>
+
+        <div class="colum">
+            <p>Дать права</p>
+        </div>
+        <div class="colum">
+            <p>Забрать права</p>
+        </div>
+        <div class="colum">
+            <p>@Model.Email</p>
+        </div>
+
+        <div class="colum">
+            <button id="creation" action="/Home/Create" class="btn btn-info">кликк</button>
+        </div>
+        <div class="colum">
+            <button action="Remove" class="btn btn-danger">кликк</button>
+        </div>
+    </div>
+</form>

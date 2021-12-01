@@ -17,7 +17,7 @@ namespace AD
             IConfigurationRoot config = builder.Build(); 
             
             var optionBuilder = new DbContextOptionsBuilder();
-            optionBuilder.UseNpgsql(config.GetConnectionString("Postgres")
+            optionBuilder.UseSqlServer(config.GetConnectionString("Local")
                 ,b => b.MigrationsAssembly("AD.Data"));
             return new ApplicationContext(optionBuilder.Options);
         }

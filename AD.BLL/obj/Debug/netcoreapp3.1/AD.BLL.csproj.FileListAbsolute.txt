@@ -13,3 +13,35 @@ D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.pdb
 D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.json
 D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.dev.json
 D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.genruntimeconfig.cache
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.deps.json
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.json
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.dev.json
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.dll
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.pdb
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.Data.dll
+D:\Работа Данил\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.Data.pdb
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.AssemblyReference.cache
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.AssemblyInfoInputs.cache
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.AssemblyInfo.cs
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.CoreCompileInputs.cache
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.CopyComplete
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.dll
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.pdb
+D:\Работа Данил\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.genruntimeconfig.cache
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.deps.json
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.json
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.dev.json
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.dll
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.pdb
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.Data.dll
+D:\workDanil\Проекты\my\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.Data.pdb
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.AssemblyReference.cache
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.AssemblyInfoInputs.cache
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.AssemblyInfo.cs
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.CoreCompileInputs.cache
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.CopyComplete
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.dll
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.pdb
+D:\workDanil\Проекты\my\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.genruntimeconfig.cache

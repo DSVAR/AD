@@ -1,0 +1,15 @@
+﻿.grid-are{
+    display:grid;
+    grid-template-columns:auto auto auto
+}
+.border_dark{
+    border:0.1em solid black;
+    
+}
+.colum {
+    position: center;
+    border: 0.1em solid black;
+    margin:0.1vw;
+    align-items:center;
+    text-align:center;
+}

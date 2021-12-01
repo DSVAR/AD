@@ -2,7 +2,7 @@
 
 namespace AD.Data.Migrations
 {
-    public partial class newuser : Migration
+    public partial class S : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

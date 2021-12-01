@@ -35,9 +35,25 @@ namespace AD.Controllers
         {
             UserViewModel us=new UserViewModel();
             us.UserName=Dns.GetHostEntry(HttpContext.Connection.RemoteIpAddress).HostName;
-          
-           
+            us.Email = System.Environment.UserName;
+            us.Nickname = User.Identity.Name;
+
+
+
+
             return View(us);
+        }
+        [HttpPost]
+        public IActionResult Creation(UserViewModel us)
+        {
+            var sw = us;
+            return null;
+        }
+        [HttpPost]
+        public IActionResult Remove(UserViewModel us)
+        {
+            var sw = us;
+            return null;
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
