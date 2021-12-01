@@ -1,0 +1,12 @@
+D:\пробы\работа\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.deps.json
+D:\пробы\работа\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.dll
+D:\пробы\работа\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.pdb
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csprojAssemblyReference.cache
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.AssemblyInfoInputs.cache
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.AssemblyInfo.cs
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csproj.CoreCompileInputs.cache
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.dll
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.pdb
+D:\пробы\работа\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.runtimeconfig.json
+D:\пробы\работа\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.runtimeconfig.dev.json
+D:\пробы\работа\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.genruntimeconfig.cache

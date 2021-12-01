@@ -1,0 +1,15 @@
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.deps.json
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.dll
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.pdb
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.Data.dll
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.Data.pdb
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csprojAssemblyReference.cache
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.AssemblyInfoInputs.cache
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.AssemblyInfo.cs
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.CoreCompileInputs.cache
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.csproj.CopyComplete
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.dll
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.pdb
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.json
+D:\пробы\работа\AD\AD.BLL\bin\Debug\netcoreapp3.1\AD.BLL.runtimeconfig.dev.json
+D:\пробы\работа\AD\AD.BLL\obj\Debug\netcoreapp3.1\AD.BLL.genruntimeconfig.cache
