@@ -1,13 +1,18 @@
-﻿ @{
-     ViewData["Title"] = "Role";
+﻿@{
+    ViewData["Title"] = "Role";
+
+}
+@using AD.BLL.ModelsDTO;
+@model UserViewModel
+@{ 
+    RoleViewModel role=new RoleViewModel();
 }
 
-<div>
-    @Model.Email
-</div>
 
 
-<form method="post" action="">
+<form method="post" asp-controller="Home"  enctype="multipart/form-data">
+    <input asp-for="@Model.UserName" />
+
     <div class="grid-are ">
         <div class="colum">
             <p>Пользователь</p>
@@ -19,15 +24,33 @@
         <div class="colum">
             <p>Забрать права</p>
         </div>
+
+
         <div class="colum">
-            <p>@Model.Email</p>
+            <p>@Model</p>
+        </div>
+
+        @if(@Model.IsAdmin)
+        {
+        <div class="colum">
+            <button disabled asp-action="Creation" class="btn btn-info">кликк</button>
         </div>
 
         <div class="colum">
-            <button id="creation" formaction="Creation" class="btn btn-info">кликк</button>
+            <button  asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
         </div>
-        <div class="colum">
-            <button formaction="Remove" class="btn btn-danger">кликк</button>
-        </div>
+        }
+        else
+        {
+            <div class="colum">
+                <button  asp-action="Creation" class="btn btn-info">кликк</button>
+            </div>
+
+            <div class="colum">
+                <button disabled  asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
+            </div>
+        }
+
     </div>
+
 </form>

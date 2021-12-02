@@ -22,8 +22,9 @@ namespace AD.BLL.Configure
             services.AddAutoMapper(typeof(ConfigureMapping));
             services.AddTransient<ConfigureMapping>();
           //  services.AddSingleton(typeof(IUserService), typeof(UserService));
-            services.AddTransient<IUserService, UserService>();
+            services.AddScoped(typeof(IUserService),typeof( UserService));
             services.AddTransient<IUnitOfWork, UnitOfWorkRepo>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
           //  services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWorkRepo));
             
             services.AddDbContext<ApplicationContext>(options =>
@@ -31,6 +32,7 @@ namespace AD.BLL.Configure
                 options.UseSqlServer(configuration.GetConnectionString("Local"),
                     b => b.MigrationsAssembly("AD.Data")
                 );
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
 

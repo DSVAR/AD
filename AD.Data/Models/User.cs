@@ -4,6 +4,7 @@ namespace AD.Data.Models
 {
     public class User:IdentityUser
     {
-        string Nickname { get; set; }
+       public string Nickname { get; set; }
+       public bool IsAdmin { get; set; }
     }
 }

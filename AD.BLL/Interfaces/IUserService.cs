@@ -14,5 +14,8 @@ namespace AD.BLL.Interfaces
         Task<IdentityResult> DeleteRole(string name);
         Task<bool> IsInRole(UserViewModel user, string role);
         Task<IdentityResult> AddToRole(UserViewModel user,string role);
+        Task<IdentityResult> CreateUser(UserViewModel user);
+        Task<bool> HaveNotRole(string name);
+        Task<UserViewModel> FindUser(string name);
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AD.Data.Repositories
 {
-    class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly ApplicationContext _application;
         private readonly DbSet<T> _dbSet;
