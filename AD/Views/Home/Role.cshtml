@@ -2,15 +2,21 @@
     ViewData["Title"] = "Role";
 
 }
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 @using AD.BLL.ModelsDTO;
 @model UserViewModel
-@{ 
-    RoleViewModel role=new RoleViewModel();
+@{
+    RoleViewModel role = new RoleViewModel();
+    
 }
+<p>@User.IsInRole("Admin")</p>
+<p>@User.IsInRole("User")</p>
 
 
 
-<form method="post" asp-controller="Home"  enctype="multipart/form-data">
+<form method="post" asp-controller="Home" enctype="multipart/form-data">
     <input asp-for="@Model.UserName" />
 
     <div class="grid-are ">
@@ -24,33 +30,87 @@
         <div class="colum">
             <p>Забрать права</p>
         </div>
-
-
+        
+        
+        @if(User.IsInRole("Admin"))
+            {
+                <h1>sw</h1>
+            }
+        else { 
+            <h1>two</h1>
+        }
         <div class="colum">
             <p>@Model</p>
         </div>
-
-        @if(@Model.IsAdmin)
+       
+        @if (@Model.IsAdmin)
         {
-        <div class="colum">
-            <button disabled asp-action="Creation" class="btn btn-info">кликк</button>
-        </div>
+            <div class="colum">
+                <button disabled asp-action="Creation" class="btn btn-info">кликк</button>
+            </div>
 
-        <div class="colum">
-            <button  asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
-        </div>
+            <div class="colum">
+                <button asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
+            </div>
         }
         else
         {
             <div class="colum">
-                <button  asp-action="Creation" class="btn btn-info">кликк</button>
+                <button asp-action="Creation" class="btn btn-info">кликк</button>
             </div>
 
             <div class="colum">
-                <button disabled  asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
+                <button disabled asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
             </div>
         }
 
     </div>
 
+    <button type="submit" id="onBit">test</button>
 </form>
+
+
+
+<!--<script src="~/js/test.js">-->
+@*alert('syka');*@
+<!--</script>-->
+<script type="text/javascript" language="javascript">
+    //$(document).ready(function () {
+    //    $("#onBit").click(function () {
+    //        alert("bm")
+    //    })
+    //});
+    $("#onBit").click(function (e) {
+        console.log("plus");
+        var dat = {
+            UserName: '@Model.UserName',
+            Id:'@Model.Id'
+        };
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("Remove", "Home")',
+            dataType:"json",
+            data: dat,
+            success: function (data) {
+                debugger;
+                alert(data)
+            },
+            error: function (error) {
+                alert(error)
+            }
+
+
+
+        })
+    })
+
+
+    $(document).click(function (e) {
+        console.log(e);
+    })
+
+</script>
+
+@* С помощью .ready мы вызываем функцию до закрузки компонента  *@
+@* .click по клику аргумент который раписывается в скобках, используется для ID кнопки *@

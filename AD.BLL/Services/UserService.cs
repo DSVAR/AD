@@ -73,5 +73,10 @@ namespace AD.BLL.Services
         {            
             return await _roleManager.RoleExistsAsync(name);;
         }
+
+        public async Task<IdentityResult> UpdateUser(UserViewModel user)
+        {
+            return await _userManager.UpdateAsync(user);
+        } 
     }
 }

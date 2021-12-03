@@ -26,9 +26,7 @@ namespace AD.Controllers
             _mapper = mapper;;
         }
         public IActionResult Register()
-        {
-           
-
+        {           
             return null;
         }
 
@@ -45,10 +43,7 @@ namespace AD.Controllers
         public async Task<IActionResult> Role()
         {
             var user = await _UserService.FindUser(Environment.UserName);
-            if (!await _UserService.HaveRole("Admin"))
-            {
-                await _UserService.AddRole("Admin");
-            }
+        
 
             if (!await  _UserService.HaveRole("User"))
             {
@@ -58,43 +53,46 @@ namespace AD.Controllers
             if (user == null) {
 
                 userView.UserName = Environment.UserName;
-                var result = await _UserService.CreateUser(userView);               
+                var result = await _UserService.CreateUser(userView);
+
+                if (!await _UserService.IsInRole(user, "User"))
+                    await _UserService.AddToRole(user, "User");
             }
-            var t = await _UserService.IsInRole(user, "User");
-            if (!await _UserService.IsInRole(user,"User"))
-                await _UserService.AddToRole(user, "User");
+       
 
             return View(user);
             
         }
         [HttpPost]
        
-        public IActionResult Creation(UserViewModel userView)
+        public async Task<IActionResult> Creation(UserViewModel userView)
         {
-            _UserService.AddToRole(userView, "Admin");
+            var us =await _UserService.FindUser(userView.UserName);
 
+            if (!us.IsAdmin) { 
+                await  _UserService.AddToRole(us, "Admin");
+                us.IsAdmin = true;
+                await _UserService.UpdateUser(us);
+            }
 
-            return null;
-        }
-        [HttpPost]
-        public IActionResult Remove(UserViewModel userView)
-        {
-            
-            return null;
-        }
-        public async Task<IActionResult> Create(RoleViewModel role)
-        {
-            
-            var result = await _UserService.AddRole(role.NameRole);
             return Redirect("/Home/Role");
         }
-
-
-        public async Task<IActionResult> CreateUser(UserViewModel user)
+        [HttpPost]
+        public async Task<IActionResult> Remove(UserViewModel userView)
         {
+            var us = await _UserService.FindUser(userView.UserName);
 
-            return null;
+            if (us.IsAdmin)
+            {
+                await _UserService.RemoveFromUser(us, "Admin");
+                us.IsAdmin = false;
+                await _UserService.UpdateUser(us);
+            }
+
+            return Json(new { userView });
         }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

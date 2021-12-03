@@ -18,5 +18,6 @@ namespace AD.BLL.Interfaces
         Task<IdentityResult> RemoveFromUser(UserViewModel user, string role);
         Task<bool> HaveRole(string name);
         Task<UserViewModel> FindUser(string name);
+        Task<IdentityResult> UpdateUser(UserViewModel user);
     }
 }
