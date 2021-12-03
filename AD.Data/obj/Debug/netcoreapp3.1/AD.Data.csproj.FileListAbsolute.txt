@@ -36,3 +36,15 @@ D:\workDanil\Проекты\my\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.dll
 D:\workDanil\Проекты\my\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.pdb
 D:\workDanil\Проекты\my\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.genruntimeconfig.cache
 D:\workDanil\Проекты\my\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csproj.AssemblyReference.cache
+D:\пробы\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.deps.json
+D:\пробы\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.runtimeconfig.json
+D:\пробы\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.runtimeconfig.dev.json
+D:\пробы\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.dll
+D:\пробы\AD\AD.Data\bin\Debug\netcoreapp3.1\AD.Data.pdb
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csprojAssemblyReference.cache
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.AssemblyInfoInputs.cache
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.AssemblyInfo.cs
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csproj.CoreCompileInputs.cache
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.dll
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.pdb
+D:\пробы\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.genruntimeconfig.cache

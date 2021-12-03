@@ -6757,30 +6757,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\DVAR\\.nuget\\packages\\": {},
+    "D:\\Visual\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj",
+      "projectUniqueName": "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj",
       "projectName": "AD.BLL",
-      "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj",
-      "packagesPath": "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\",
-      "outputPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\obj\\",
+      "projectPath": "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj",
+      "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
+      "outputPath": "D:\\пробы\\AD\\AD.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "D:\\Visual\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\NurmekhametovDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DVAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -6793,8 +6788,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj": {
-              "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj"
+            "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj": {
+              "projectPath": "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj"
             }
           }
         }
@@ -6869,7 +6864,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

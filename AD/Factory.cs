@@ -17,8 +17,11 @@ namespace AD
             IConfigurationRoot config = builder.Build(); 
             
             var optionBuilder = new DbContextOptionsBuilder();
-            optionBuilder.UseSqlServer(config.GetConnectionString("Local")
-                ,b => b.MigrationsAssembly("AD.Data"));
+            // optionBuilder.UseSqlServer(config.GetConnectionString("Local")
+            //     ,b => b.MigrationsAssembly("AD.Data"));// work
+            optionBuilder.UseNpgsql(config.GetConnectionString("Postgre")
+                , b => b.MigrationsAssembly("AD.Data")); //Home
+
             return new ApplicationContext(optionBuilder.Options);
         }
     }

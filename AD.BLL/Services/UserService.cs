@@ -45,8 +45,12 @@ namespace AD.BLL.Services
 
         public async Task<IdentityResult> CreateUser(UserViewModel user)
         {
-            var us = _imapper.Map<UserViewModel>(user);
-            return await _userManager.CreateAsync(us);  
+            return await _userManager.CreateAsync(user);  
+        }
+
+        public async Task<IdentityResult> RemoveFromUser(UserViewModel user, string role)
+        {
+            return await _userManager.RemoveFromRoleAsync(user, role);
         }
 
         public async Task<IdentityResult> DeleteRole(string name)
@@ -65,11 +69,9 @@ namespace AD.BLL.Services
             return await _userManager.IsInRoleAsync(user, role);
         }
 
-        public async Task<bool> HaveNotRole(string name)
-        {
-            var role= await _roleManager.FindByNameAsync(name);
-
-            return string.IsNullOrEmpty(role.Name);
+        public async Task<bool> HaveRole(string name)
+        {            
+            return await _roleManager.RoleExistsAsync(name);;
         }
     }
 }

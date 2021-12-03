@@ -45,30 +45,24 @@ namespace AD.Controllers
         public async Task<IActionResult> Role()
         {
             var user = await _UserService.FindUser(Environment.UserName);
+            if (!await _UserService.HaveRole("Admin"))
+            {
+                await _UserService.AddRole("Admin");
+            }
 
+            if (!await  _UserService.HaveRole("User"))
+            {
+                await _UserService.AddRole("User");
+            }
+            
             if (user == null) {
 
                 userView.UserName = Environment.UserName;
-                var result = await _UserService.CreateUser(userView);
-                if (result.Succeeded)
-                {
-                   
-                    if (await _UserService.HaveNotRole("user"))
-                            await _UserService.AddToRole(user, "user");
-
-                    return Redirect("/Home/Role");
-                }
-            else
-            {
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError(item.Code, item.Description);
-                }
-
-                return (IActionResult)ModelState;
+                var result = await _UserService.CreateUser(userView);               
             }
-            }
-
+            var t = await _UserService.IsInRole(user, "User");
+            if (!await _UserService.IsInRole(user,"User"))
+                await _UserService.AddToRole(user, "User");
 
             return View(user);
             
