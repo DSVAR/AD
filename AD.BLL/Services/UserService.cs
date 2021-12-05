@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace AD.BLL.Services
 {
@@ -77,6 +78,18 @@ namespace AD.BLL.Services
         public async Task<IdentityResult> UpdateUser(UserViewModel user)
         {
             return await _userManager.UpdateAsync(user);
-        } 
+        }
+
+        public async Task<List<User>> GetAllUser()
+        {
+            return await _userManager.Users.ToListAsync();
+        }
+
+        public async Task<List<IdentityRole>> GetAllRoles()
+        {
+            return await _roleManager.Roles.ToListAsync();
+        }
+
+     
     }
 }

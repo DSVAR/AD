@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using AD.BLL.ModelsDTO;
 using AD.BLL.Interfaces;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace AD.Controllers
 {
@@ -32,6 +34,7 @@ namespace AD.Controllers
 
         public IActionResult Index()
         {
+            var u = HttpContext.User.Identity.Name;
             return View();
         }
 
@@ -39,12 +42,12 @@ namespace AD.Controllers
         {
             return View();
         }
-
         public async Task<IActionResult> Role()
         {
+            var cookie = Request.Cookies["test_cookie"];
             var user = await _UserService.FindUser(Environment.UserName);
-        
-
+            var sr = _mapper.Map<IdentityUser>(user);
+          
             if (!await  _UserService.HaveRole("User"))
             {
                 await _UserService.AddRole("User");
@@ -60,7 +63,7 @@ namespace AD.Controllers
             }
        
 
-            return View(user);
+            return View(sr);
             
         }
         [HttpPost]

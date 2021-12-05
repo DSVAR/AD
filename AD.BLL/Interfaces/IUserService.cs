@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using AD.Data.Models;
 
 namespace AD.BLL.Interfaces
 {
@@ -19,5 +20,7 @@ namespace AD.BLL.Interfaces
         Task<bool> HaveRole(string name);
         Task<UserViewModel> FindUser(string name);
         Task<IdentityResult> UpdateUser(UserViewModel user);
+        Task<List<User>> GetAllUser();
+        Task<List<IdentityRole>> GetAllRoles();
     }
 }

@@ -21,20 +21,20 @@ namespace AD.BLL.Configure
 
             services.AddAutoMapper(typeof(ConfigureMapping));
             services.AddTransient<ConfigureMapping>();
-          //  services.AddSingleton(typeof(IUserService), typeof(UserService));
             services.AddScoped(typeof(IUserService),typeof( UserService));
             services.AddTransient<IUnitOfWork, UnitOfWorkRepo>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-          //  services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWorkRepo));
             
             services.AddDbContext<ApplicationContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("Local"),
+                // options.UseSqlServer(configuration.GetConnectionString("Local"),
+                //     b => b.MigrationsAssembly("AD.Data")
+                // ); //Work
+                //
+                
+                options.UseNpgsql(configuration.GetConnectionString("Postgres"),
                     b => b.MigrationsAssembly("AD.Data")
-                ); //Work
-                //options.UseNpgsql(configuration.GetConnectionString("Postgres"),
-                //    b => b.MigrationsAssembly("AD.Data")
-                //);//home
+                );//home
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 

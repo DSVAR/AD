@@ -6,18 +6,19 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 @using AD.BLL.ModelsDTO;
-@model UserViewModel
+@using Microsoft.AspNetCore.Identity
+@model IdentityUser
 @{
     RoleViewModel role = new RoleViewModel();
+ 
     
 }
 <p>@User.IsInRole("Admin")</p>
 <p>@User.IsInRole("User")</p>
 
 
-
 <form method="post" asp-controller="Home" enctype="multipart/form-data">
-    <input asp-for="@Model.UserName" />
+    @* <input asp-for="@Model.UserName" /> *@
 
     <div class="grid-are ">
         <div class="colum">
@@ -32,37 +33,31 @@
         </div>
         
         
-        @if(User.IsInRole("Admin"))
-            {
-                <h1>sw</h1>
-            }
-        else { 
-            <h1>two</h1>
-        }
+      
         <div class="colum">
             <p>@Model</p>
         </div>
        
-        @if (@Model.IsAdmin)
-        {
-            <div class="colum">
-                <button disabled asp-action="Creation" class="btn btn-info">кликк</button>
-            </div>
-
-            <div class="colum">
-                <button asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
-            </div>
-        }
-        else
-        {
-            <div class="colum">
-                <button asp-action="Creation" class="btn btn-info">кликк</button>
-            </div>
-
-            <div class="colum">
-                <button disabled asp-action="Remove" type="submit" class="btn btn-danger">кликк</button>
-            </div>
-        }
+        @* @if (@Model.IsAdmin) *@
+        @* { *@
+        @*     <div class="colum"> *@
+        @*         <button disabled asp-action="Creation" class="btn btn-info">кликк</button> *@
+        @*     </div> *@
+        @* *@
+        @*     <div class="colum"> *@
+        @*         <button asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> *@
+        @*     </div> *@
+        @* } *@
+        @* else *@
+        @* { *@
+        @*     <div class="colum"> *@
+        @*         <button asp-action="Creation" class="btn btn-info">кликк</button> *@
+        @*     </div> *@
+        @* *@
+        @*     <div class="colum"> *@
+        @*         <button disabled asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> *@
+        @*     </div> *@
+        @* } *@
 
     </div>
 
@@ -83,8 +78,8 @@
     $("#onBit").click(function (e) {
         console.log("plus");
         var dat = {
-            UserName: '@Model.UserName',
-            Id:'@Model.Id'
+          @*  UserName: '@Model.UserName',
+            Id:'@Model.Id'*@
         };
         debugger;
         $.ajax({
