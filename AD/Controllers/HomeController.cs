@@ -96,6 +96,13 @@ namespace AD.Controllers
         }
 
 
+        public async Task<IdentityUser> ReturnIdentity()
+        {
+            var user = await _UserService.FindUser(Environment.UserName);
+            
+            return _mapper.Map<IdentityUser>(user);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

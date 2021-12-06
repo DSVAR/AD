@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head >
     <meta charset="utf-8"/>
@@ -58,3 +60,19 @@
 @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<script>
+    $(document).ready(function (){
+        $.ajax({
+            url:'@Url.Action("ReturnIdentity","Home")',
+            success:function (data){
+                debugger;
+                console.log(data);
+            
+                
+            }
+            
+        })    
+    })
+
+</script>
