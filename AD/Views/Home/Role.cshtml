@@ -7,15 +7,12 @@
 
 @using AD.BLL.ModelsDTO;
 @using Microsoft.AspNetCore.Identity
-@model UserViewModel
+@model UserViewModel 
 @{
     RoleViewModel role = new RoleViewModel();
- 
-    
 }
 <p>@User.IsInRole("Admin")</p>
 <p>@User.IsInRole("User")</p>
-
 
 
 <form method="post" asp-controller="Home" enctype="multipart/form-data">

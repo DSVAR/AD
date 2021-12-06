@@ -7,10 +7,7 @@ namespace AD.BLL.Services
 {
     public class RoleViewModel
     {
-        [Required(ErrorMessage ="Need some role")]
-        string RoleName{ get; set; }
+       public string RoleName{ get; set; }
 
-        [Required(ErrorMessage ="Need name")]
-        string UserName { get; set; }
     }
 }

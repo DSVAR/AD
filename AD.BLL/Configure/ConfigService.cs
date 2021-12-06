@@ -27,14 +27,14 @@ namespace AD.BLL.Configure
             
             services.AddDbContext<ApplicationContext>(options =>
             {
-                options.UseSqlServer(configuration.GetConnectionString("Local"),
+                // options.UseSqlServer(configuration.GetConnectionString("Local"),
+                //     b => b.MigrationsAssembly("AD.Data")
+                // ); //Work
+
+
+                options.UseNpgsql(configuration.GetConnectionString("Postgres"),
                     b => b.MigrationsAssembly("AD.Data")
-                ); //Work
-
-
-                //options.UseNpgsql(configuration.GetConnectionString("Postgres"),
-                //    b => b.MigrationsAssembly("AD.Data")
-                //);//home
+                );//home
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 

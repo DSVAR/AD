@@ -14,18 +14,21 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.DirectoryServices.AccountManagement;
+using AD.AttributeValidate;
 using AD.Codes;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace AD.Controllers
-{
+{  
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUserService _UserService;
         private readonly IMapper _mapper;
         private UserViewModel userView=new UserViewModel();
+        
         AccountManager _AM = new AccountManager();
         public HomeController(ILogger<HomeController> logger, IUserService userService, IMapper mapper)
         {
@@ -50,11 +53,11 @@ namespace AD.Controllers
             return View();
         }
 
-        
+      [RoleValidateAttribute("Admin")]
         public async Task<IActionResult> Role()
         {
            
-            var ps = _AM.GetInfoBoutUser(Environment.UserName);
+           // var ps = _AM.GetInfoBoutUser(Environment.UserName);
 
             var user = await _UserService.FindUser(Environment.UserName);
             var sr = _mapper.Map<IdentityUser>(user);
@@ -77,7 +80,7 @@ namespace AD.Controllers
 
 
 
-            return View(sr);
+            return View(user);
             
         }
         [HttpPost]
