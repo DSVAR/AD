@@ -85,11 +85,11 @@ namespace AD.BLL.Services
             return await _userManager.Users.ToListAsync();
         }
 
-        public async Task<List<IdentityRole>> GetAllRoles()
+        public async Task<IList<string>> GetAllRoles(UserViewModel user)
         {
-            return await _roleManager.Roles.ToListAsync();
+            return await _userManager.GetRolesAsync(user);
         }
 
-     
+      
     }
 }

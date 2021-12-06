@@ -21,6 +21,6 @@ namespace AD.BLL.Interfaces
         Task<UserViewModel> FindUser(string name);
         Task<IdentityResult> UpdateUser(UserViewModel user);
         Task<List<User>> GetAllUser();
-        Task<List<IdentityRole>> GetAllRoles();
+        Task<IList<string>> GetAllRoles(UserViewModel user);
     }
 }

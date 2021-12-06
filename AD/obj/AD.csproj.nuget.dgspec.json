@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "D:\\пробы\\AD\\AD\\AD.csproj": {}
+    "D:\\workDanil\\Проекты\\my\\AD\\AD\\AD.csproj": {}
   },
   "projects": {
-    "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj": {
+    "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj",
+        "projectUniqueName": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj",
         "projectName": "AD.BLL",
-        "projectPath": "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj",
-        "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-        "outputPath": "D:\\пробы\\AD\\AD.BLL\\obj\\",
+        "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj",
+        "packagesPath": "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\",
+        "outputPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DVAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NurmekhametovDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -32,8 +35,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj": {
-                "projectPath": "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj"
+              "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj": {
+                "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj"
               }
             }
           }
@@ -108,26 +111,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj": {
+    "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj",
+        "projectUniqueName": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj",
         "projectName": "AD.Data",
-        "projectPath": "D:\\пробы\\AD\\AD.Data\\AD.Data.csproj",
-        "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-        "outputPath": "D:\\пробы\\AD\\AD.Data\\obj\\",
+        "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj",
+        "packagesPath": "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\",
+        "outputPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DVAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NurmekhametovDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -196,26 +202,29 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\пробы\\AD\\AD\\AD.csproj": {
+    "D:\\workDanil\\Проекты\\my\\AD\\AD\\AD.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\пробы\\AD\\AD\\AD.csproj",
+        "projectUniqueName": "D:\\workDanil\\Проекты\\my\\AD\\AD\\AD.csproj",
         "projectName": "AD",
-        "projectPath": "D:\\пробы\\AD\\AD\\AD.csproj",
-        "packagesPath": "C:\\Users\\DVAR\\.nuget\\packages\\",
-        "outputPath": "D:\\пробы\\AD\\AD\\obj\\",
+        "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD\\AD.csproj",
+        "packagesPath": "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\",
+        "outputPath": "D:\\workDanil\\Проекты\\my\\AD\\AD\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Visual\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\DVAR\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NurmekhametovDI\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -228,8 +237,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj": {
-                "projectPath": "D:\\пробы\\AD\\AD.BLL\\AD.BLL.csproj"
+              "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj": {
+                "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj"
               }
             }
           }
@@ -268,9 +277,17 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "Microsoft.IdentityModel.Clients.ActiveDirectory": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[5.0.10, )"
+            },
+            "System.DirectoryServices.AccountManagement": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -291,7 +308,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

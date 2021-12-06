@@ -7,7 +7,7 @@
 
 @using AD.BLL.ModelsDTO;
 @using Microsoft.AspNetCore.Identity
-@model IdentityUser
+@model UserViewModel
 @{
     RoleViewModel role = new RoleViewModel();
  
@@ -15,6 +15,7 @@
 }
 <p>@User.IsInRole("Admin")</p>
 <p>@User.IsInRole("User")</p>
+
 
 
 <form method="post" asp-controller="Home" enctype="multipart/form-data">
@@ -38,26 +39,26 @@
             <p>@Model</p>
         </div>
        
-        @* @if (@Model.IsAdmin) *@
-        @* { *@
-        @*     <div class="colum"> *@
-        @*         <button disabled asp-action="Creation" class="btn btn-info">кликк</button> *@
-        @*     </div> *@
-        @* *@
-        @*     <div class="colum"> *@
-        @*         <button asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> *@
-        @*     </div> *@
-        @* } *@
-        @* else *@
-        @* { *@
-        @*     <div class="colum"> *@
-        @*         <button asp-action="Creation" class="btn btn-info">кликк</button> *@
-        @*     </div> *@
-        @* *@
-        @*     <div class="colum"> *@
-        @*         <button disabled asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> *@
-        @*     </div> *@
-        @* } *@
+         @if (@Model.IsAdmin) 
+         { 
+             <div class="colum"> 
+                 <button disabled asp-action="Creation" class="btn btn-info">кликк</button> 
+             </div> 
+         
+             <div class="colum"> 
+                 <button asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> 
+             </div> 
+         } 
+         else 
+         { 
+             <div class="colum"> 
+                 <button asp-action="Creation" class="btn btn-info">кликк</button> 
+             </div> 
+         
+             <div class="colum"> 
+                 <button disabled asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> 
+             </div> 
+         } 
 
     </div>
 
@@ -66,25 +67,21 @@
 
 
 
-<!--<script src="~/js/test.js">-->
-@*alert('syka');*@
-<!--</script>-->
+
+
+
 <script type="text/javascript" language="javascript">
-    //$(document).ready(function () {
-    //    $("#onBit").click(function () {
-    //        alert("bm")
-    //    })
-    //});
+
     $("#onBit").click(function (e) {
         console.log("plus");
         var dat = {
-          @*  UserName: '@Model.UserName',
-            Id:'@Model.Id'*@
+            UserName: '@Model.UserName',
+            Id: '@Model.Id'
         };
         debugger;
         $.ajax({
             type: "POST",
-            url: '@Url.Action("Remove", "Home")',
+            url: '@Url.Action("Bip", "Home")',
             dataType:"json",
             data: dat,
             success: function (data) {

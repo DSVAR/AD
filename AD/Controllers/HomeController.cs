@@ -12,6 +12,11 @@ using AD.BLL.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using System.Security.Claims;
+using System.DirectoryServices.AccountManagement;
+using AD.Codes;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace AD.Controllers
 {
@@ -21,11 +26,13 @@ namespace AD.Controllers
         private readonly IUserService _UserService;
         private readonly IMapper _mapper;
         private UserViewModel userView=new UserViewModel();
+        AccountManager _AM = new AccountManager();
         public HomeController(ILogger<HomeController> logger, IUserService userService, IMapper mapper)
         {
             _logger = logger;
             _UserService = userService;
-            _mapper = mapper;;
+            _mapper = mapper;
+            //_AM = AM;
         }
         public IActionResult Register()
         {           
@@ -42,9 +49,13 @@ namespace AD.Controllers
         {
             return View();
         }
+
+        
         public async Task<IActionResult> Role()
         {
-            var cookie = Request.Cookies["test_cookie"];
+           
+            var ps = _AM.GetInfoBoutUser(Environment.UserName);
+
             var user = await _UserService.FindUser(Environment.UserName);
             var sr = _mapper.Map<IdentityUser>(user);
           
@@ -61,7 +72,10 @@ namespace AD.Controllers
                 if (!await _UserService.IsInRole(user, "User"))
                     await _UserService.AddToRole(user, "User");
             }
-       
+            var role = await _UserService.GetAllRoles(user);
+            ViewBag.Roles = role;
+
+
 
             return View(sr);
             
@@ -95,19 +109,21 @@ namespace AD.Controllers
             return Json(new { userView });
         }
 
-
-        public async Task<IdentityUser> ReturnIdentity()
+        public async Task<IActionResult> Bip(UserViewModel model)
         {
-            var user = await _UserService.FindUser(Environment.UserName);
-            
-            return _mapper.Map<IdentityUser>(user);
-        }
+         
 
+
+            return null;
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
+
+
+  
     }
 }
