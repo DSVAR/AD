@@ -2,44 +2,39 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using AD.BLL.ModelsDTO;
-using AD.BLL.Interfaces;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
-using System.DirectoryServices.AccountManagement;
 using AD.AttributeValidate;
 using AD.Codes;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using AD.BLL.Services;
 
 namespace AD.Controllers
-{  
+{
 
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IUserService _UserService;
+        //private readonly UserService _UserService;
         private readonly IMapper _mapper;
+        UserService _UserService { get; }
         private UserViewModel userView=new UserViewModel();
-        
-        AccountManager _AM = new AccountManager();
-        public HomeController(ILogger<HomeController> logger, IUserService userService, IMapper mapper)
+
+
+        public HomeController(ILogger<HomeController> logger, IMapper mapper, UserService userService)
         {
             _logger = logger;
             _UserService = userService;
             _mapper = mapper;
-            //_AM = AM;
         }
+       
+
         public IActionResult Register()
-        {           
-            return null;
+        {
+
+            return Json(new { } );
         }
 
         public IActionResult Index()
@@ -53,14 +48,12 @@ namespace AD.Controllers
             return View();
         }
 
-      [RoleValidateAttribute("Admin")]
+      [RoleValidateAttribute("User")]
         public async Task<IActionResult> Role()
         {
-           
-           // var ps = _AM.GetInfoBoutUser(Environment.UserName);
 
-            var user = await _UserService.FindUser(Environment.UserName);
-            var sr = _mapper.Map<IdentityUser>(user);
+            var tremor = _UserService.GetUserName();
+            var user = await _UserService.FindUser(User.Identity.Name);
           
             if (!await  _UserService.HaveRole("User"))
             {
@@ -75,10 +68,6 @@ namespace AD.Controllers
                 if (!await _UserService.IsInRole(user, "User"))
                     await _UserService.AddToRole(user, "User");
             }
-            var role = await _UserService.GetAllRoles(user);
-            ViewBag.Roles = role;
-
-
 
             return View(user);
             
@@ -112,14 +101,7 @@ namespace AD.Controllers
             return Json(new { userView });
         }
 
-        public async Task<IActionResult> Bip(UserViewModel model)
-        {
-         
-
-
-            return null;
-        }
-
+      
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -1,5 +1,4 @@
-﻿using AD.BLL.Interfaces;
-using AD.BLL.ModelsDTO;
+﻿using AD.BLL.ModelsDTO;
 using AD.Data.Interfaces;
 using AD.Data.Models;
 using AutoMapper;
@@ -10,23 +9,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace AD.BLL.Services
 {
-    public class UserService : IUserService
+    public class UserService 
     {
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _imapper;
         private readonly IRepository<User> _repo;
         private readonly IUnitOfWork _unitOfWork;
-        public UserService(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IMapper imapper, IRepository<User> repo, IUnitOfWork unitOfWork)
+        private readonly IHttpContextAccessor _httpContextAccsessor;
+        public UserService(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IMapper imapper, IRepository<User> repo, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccsessor)
         {
             _roleManager = roleManager;
             _userManager = userManager;
             _imapper = imapper;
             _unitOfWork = unitOfWork;
             _repo = repo;
+            _httpContextAccsessor= httpContextAccsessor;
         }
         public async Task<IdentityResult> AddRole(string name)
         {
@@ -80,16 +82,12 @@ namespace AD.BLL.Services
             return await _userManager.UpdateAsync(user);
         }
 
-        public async Task<List<User>> GetAllUser()
-        {
-            return await _userManager.Users.ToListAsync();
-        }
 
-        public async Task<IList<string>> GetAllRoles(UserViewModel user)
+        public string GetUserName()
         {
-            return await _userManager.GetRolesAsync(user);
+            
+            return _httpContextAccsessor.HttpContext.User.Identity.Name.Remove(0, _httpContextAccsessor.HttpContext.User.Identity.Name.IndexOf("\\")).Replace("\\", "");
         }
-
       
     }
 }

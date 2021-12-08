@@ -30,6 +30,7 @@ namespace AD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+             
             ConfigService.InitService(services, Configuration);
         }
 

@@ -4,11 +4,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AD.BLL.Interfaces;
 using AD.BLL.Services;
 using AD.Data.Interfaces;
 using AD.Data.Repositories;
 using AD.Data.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace AD.BLL.Configure
 {
@@ -21,20 +21,23 @@ namespace AD.BLL.Configure
 
             services.AddAutoMapper(typeof(ConfigureMapping));
             services.AddTransient<ConfigureMapping>();
-            services.AddScoped(typeof(IUserService),typeof( UserService));
+            services.AddScoped(typeof( UserService));
+            services.AddHttpContextAccessor();
             services.AddTransient<IUnitOfWork, UnitOfWorkRepo>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             
             services.AddDbContext<ApplicationContext>(options =>
             {
-                // options.UseSqlServer(configuration.GetConnectionString("Local"),
-                //     b => b.MigrationsAssembly("AD.Data")
-                // ); //Work
-
-
-                options.UseNpgsql(configuration.GetConnectionString("Postgres"),
+                options.UseSqlServer(configuration.GetConnectionString("Local"),
                     b => b.MigrationsAssembly("AD.Data")
-                );//home
+                ); //Work
+
+
+                //options.UseNpgsql(configuration.GetConnectionString("Postgres"),
+                //    b => b.MigrationsAssembly("AD.Data")
+                //);//home
+
+
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
 
