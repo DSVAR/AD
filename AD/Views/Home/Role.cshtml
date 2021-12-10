@@ -7,16 +7,10 @@
 
 @using AD.BLL.ModelsDTO;
 @using Microsoft.AspNetCore.Identity
-@model UserViewModel 
-@{
-    RoleViewModel role = new RoleViewModel();
-}
-<p>@User.IsInRole("Admin")</p>
-<p>@User.IsInRole("User")</p>
-
+@model List<UserViewModel>
 
 <form method="post" asp-controller="Home" enctype="multipart/form-data">
-    @* <input asp-for="@Model.UserName" /> *@
+
 
     <div class="grid-are ">
         <div class="colum">
@@ -29,33 +23,34 @@
         <div class="colum">
             <p>Забрать права</p>
         </div>
-        
-        
-      
-        <div class="colum">
-            <p>@Model</p>
-        </div>
-       
-         @if (@Model.IsAdmin) 
-         { 
-             <div class="colum"> 
-                 <button disabled asp-action="Creation" class="btn btn-info">кликк</button> 
-             </div> 
-         
-             <div class="colum"> 
-                 <button asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> 
-             </div> 
-         } 
-         else 
-         { 
-             <div class="colum"> 
-                 <button asp-action="Creation" class="btn btn-info">кликк</button> 
-             </div> 
-         
-             <div class="colum"> 
-                 <button disabled asp-action="Remove" type="submit" class="btn btn-danger">кликк</button> 
-             </div> 
-         } 
+
+
+
+
+        @foreach (var user in Model)
+        {
+            <div class="colum">
+                <p>@user.UserName</p>
+            </div>
+            if (!user.IsAdmin)
+            {
+                <div class="colum">
+                    <button class="btn  btn-dark" asp-action="Creation" asp-route-email="@user.Email"> Дать права</button>
+                </div>
+                <div class="colum">
+                    <button disabled class=" btn btn-primary" id="@user.Id" name="removePer"> Забрать права</button>
+                </div>
+            }
+            else
+            {
+                <div class="colum">
+                    <button disabled class="btn  btn-dark"  type="submit"> Дать права</button>
+                </div>
+                <div class="colum">
+                    <button class="btn btn-primary" type="submit" asp-action="Remove" asp-route-email="@user.Email"> Забрать права</button>
+                </div>
+            }
+        }
 
     </div>
 
@@ -69,37 +64,10 @@
 
 <script type="text/javascript" language="javascript">
 
-    $("#onBit").click(function (e) {
-        console.log("plus");
-        var dat = {
-            UserName: '@Model.UserName',
-            Id: '@Model.Id'
-        };
-        debugger;
-        $.ajax({
-            type: "POST",
-            url: '@Url.Action("Bip", "Home")',
-            dataType:"json",
-            data: dat,
-            success: function (data) {
-                debugger;
-                alert(data)
-            },
-            error: function (error) {
-                alert(error)
-            }
-
-
-
-        })
-    })
-
-
-    $(document).click(function (e) {
-        console.log(e);
-    })
+  
+    
 
 </script>
 
-@* С помощью .ready мы вызываем функцию до закрузки компонента  *@
-@* .click по клику аргумент который раписывается в скобках, используется для ID кнопки *@
+ @*С помощью .ready мы вызываем функцию до закрузки компонента
+ .click по клику аргумент который раписывается в скобках, используется для ID кнопки*@ 

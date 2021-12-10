@@ -61,9 +61,9 @@ namespace AD.BLL.Services
             return await _roleManager.DeleteAsync(new IdentityRole(name));
         }
 
-        public async Task<UserViewModel> FindUser(string name)
+        public async Task<UserViewModel> FindUserByEmail(string email)
         {
-            var user = await _userManager.FindByNameAsync(name);
+            var user = await _userManager.FindByEmailAsync(email);
             return _imapper.Map<UserViewModel>(user);
         }
 
@@ -87,6 +87,19 @@ namespace AD.BLL.Services
         {
             
             return _httpContextAccsessor.HttpContext.User.Identity.Name.Remove(0, _httpContextAccsessor.HttpContext.User.Identity.Name.IndexOf("\\")).Replace("\\", "");
+        }
+
+
+        public  async Task<List<UserViewModel>> GetUsers()
+        {
+            var listUser = new List<UserViewModel>();
+            var users = await _userManager.Users.ToListAsync();
+            foreach(var user in users)
+            {
+                listUser.Add(_imapper.Map<UserViewModel>(user));
+            }
+
+            return listUser;
         }
       
     }

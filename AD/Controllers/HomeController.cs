@@ -5,11 +5,10 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using AD.BLL.ModelsDTO;
-using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using AD.AttributeValidate;
-using AD.Codes;
 using AD.BLL.Services;
+using AD.BLL.Methods;
+using System.Collections.Generic;
 
 namespace AD.Controllers
 {
@@ -17,29 +16,28 @@ namespace AD.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        //private readonly UserService _UserService;
-        private readonly IMapper _mapper;
-        UserService _UserService { get; }
-        private UserViewModel userView=new UserViewModel();
+        private UserService _UserService { get; }
+        private UserMethods _userMethods { get; }
+        
 
 
-        public HomeController(ILogger<HomeController> logger, IMapper mapper, UserService userService)
+        public HomeController(ILogger<HomeController> logger,  UserService userService, UserMethods userMethods)
         {
             _logger = logger;
             _UserService = userService;
-            _mapper = mapper;
+            _userMethods = userMethods;
         }
        
 
-        public IActionResult Register()
+        public async Task<IActionResult> Register()
         {
-
-            return Json(new { } );
+            var js = await _userMethods.AddUserBD();
+            return Json(js);
         }
 
         public IActionResult Index()
         {
-            var u = HttpContext.User.Identity.Name;
+          
             return View();
         }
 
@@ -48,35 +46,21 @@ namespace AD.Controllers
             return View();
         }
 
-      [RoleValidateAttribute("User")]
+      [RoleValidate("Admin")]
         public async Task<IActionResult> Role()
         {
 
-            var tremor = _UserService.GetUserName();
-            var user = await _UserService.FindUser(User.Identity.Name);
-          
-            if (!await  _UserService.HaveRole("User"))
-            {
-                await _UserService.AddRole("User");
-            }
-            
-            if (user == null) {
+            var allUsers = await _UserService.GetUsers();
 
-                userView.UserName = Environment.UserName;
-                var result = await _UserService.CreateUser(userView);
-
-                if (!await _UserService.IsInRole(user, "User"))
-                    await _UserService.AddToRole(user, "User");
-            }
-
-            return View(user);
+        
+            return View(allUsers);
             
         }
-        [HttpPost]
-       
-        public async Task<IActionResult> Creation(UserViewModel userView)
+        [RoleValidate("Admin")]
+
+        public async Task<IActionResult> Creation(string email)
         {
-            var us =await _UserService.FindUser(userView.UserName);
+            var us =await _UserService.FindUserByEmail(email);
 
             if (!us.IsAdmin) { 
                 await  _UserService.AddToRole(us, "Admin");
@@ -86,10 +70,10 @@ namespace AD.Controllers
 
             return Redirect("/Home/Role");
         }
-        [HttpPost]
-        public async Task<IActionResult> Remove(UserViewModel userView)
+        [RoleValidate("Admin")]
+        public async Task<IActionResult> Remove(string email)
         {
-            var us = await _UserService.FindUser(userView.UserName);
+            var us = await _UserService.FindUserByEmail(email);
 
             if (us.IsAdmin)
             {
@@ -98,7 +82,7 @@ namespace AD.Controllers
                 await _UserService.UpdateUser(us);
             }
 
-            return Json(new { userView });
+            return Redirect("/Home/Role");
         }
 
       

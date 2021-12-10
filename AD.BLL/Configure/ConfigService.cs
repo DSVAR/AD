@@ -9,6 +9,8 @@ using AD.Data.Interfaces;
 using AD.Data.Repositories;
 using AD.Data.Models;
 using Microsoft.AspNetCore.Http;
+using AD.BLL.Methods;
+using AD.BLL.JsonPattern;
 
 namespace AD.BLL.Configure
 {
@@ -24,6 +26,9 @@ namespace AD.BLL.Configure
             services.AddScoped(typeof( UserService));
             services.AddHttpContextAccessor();
             services.AddTransient<IUnitOfWork, UnitOfWorkRepo>();
+            services.AddTransient(typeof(UserMethods) );
+            services.AddTransient<JsonHttpRespone>();
+
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             
             services.AddDbContext<ApplicationContext>(options =>

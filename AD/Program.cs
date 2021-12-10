@@ -1,5 +1,8 @@
+using AD.BLL.Services;
+using AD.Init;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,9 +14,17 @@ namespace AD
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            IHost web= CreateHostBuilder(args).Build();
+
+            using (var scoped = web.Services.CreateScope().ServiceProvider.CreateScope())
+            {
+                var deffInit = scoped.ServiceProvider.GetService<FirstAdd>();
+                await deffInit.DeffAddUserRole();
+            }
+
+            web.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -21,6 +32,7 @@ namespace AD
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    
                 });
     }
 }

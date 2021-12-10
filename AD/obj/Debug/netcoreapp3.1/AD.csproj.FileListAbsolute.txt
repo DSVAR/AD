@@ -273,13 +273,6 @@ D:\пробы\AD\AD\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\Syst
 D:\пробы\AD\AD\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\пробы\AD\AD\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\пробы\AD\AD\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Windows.Extensions.dll
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.GeneratedMSBuildEditorConfig.editorconfig
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.AssemblyInfoInputs.cache
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.AssemblyInfo.cs
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.csproj.CoreCompileInputs.cache
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.MvcApplicationPartsAssemblyInfo.cache
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.RazorAssemblyInfo.cache
-D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.RazorAssemblyInfo.cs
 D:\workDanil\Проекты\my\AD\AD\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\workDanil\Проекты\my\AD\AD\bin\Debug\netcoreapp3.1\appsettings.json
 D:\workDanil\Проекты\my\AD\AD\bin\Debug\netcoreapp3.1\AD.exe
@@ -370,6 +363,13 @@ D:\workDanil\Проекты\my\AD\AD\bin\Debug\netcoreapp3.1\AD.Data.dll
 D:\workDanil\Проекты\my\AD\AD\bin\Debug\netcoreapp3.1\AD.BLL.pdb
 D:\workDanil\Проекты\my\AD\AD\bin\Debug\netcoreapp3.1\AD.Data.pdb
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.csproj.AssemblyReference.cache
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.GeneratedMSBuildEditorConfig.editorconfig
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.AssemblyInfoInputs.cache
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.AssemblyInfo.cs
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.csproj.CoreCompileInputs.cache
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.MvcApplicationPartsAssemblyInfo.cache
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.RazorAssemblyInfo.cache
+D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.RazorAssemblyInfo.cs
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\staticwebassets\AD.StaticWebAssets.Manifest.cache
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\staticwebassets\AD.StaticWebAssets.xml
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\scopedcss\bundle\AD.styles.css

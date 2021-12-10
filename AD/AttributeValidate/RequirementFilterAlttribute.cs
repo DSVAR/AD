@@ -1,4 +1,5 @@
-﻿using AD.BLL.Services;
+﻿using AD.BLL.Methods;
+using AD.BLL.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
@@ -13,10 +14,12 @@ namespace AD.AttributeValidate
     {
         readonly UserService _userService;
         private string _role;
-        public RequirementFilterAlttribute(UserService userService, string role)
+        UserMethods _userMethods;
+        public RequirementFilterAlttribute(UserService userService, string role,UserMethods userMethods)
         {
             _userService = userService;
             _role = role;
+            _userMethods = userMethods;
 
         }
 
@@ -24,14 +27,12 @@ namespace AD.AttributeValidate
 
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            var user = Environment.UserName;
-            var view = _userService.FindUser(user).Result;
+            var user = _userMethods.GetInfoBoutUser();
+            var view = _userService.FindUserByEmail(user.Email).Result;
 
             if (_userService.IsInRole(view, _role).Result)
             {
-               //context.Result = new RedirectResult("www.ya.ru");
                 return;
-
             }
             else
             {

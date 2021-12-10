@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using AD.Init;
 
 namespace AD
 {
@@ -30,7 +31,9 @@ namespace AD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-             
+
+            services.AddScoped<FirstAdd>();
+
             ConfigService.InitService(services, Configuration);
         }
 
