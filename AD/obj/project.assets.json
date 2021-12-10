@@ -8513,11 +8513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workDanil\\Проекты\\my\\AD\\AD\\AD.csproj",
+      "projectUniqueName": "D:\\workDanil\\Проекты\\Tests\\AD\\AD\\AD.csproj",
       "projectName": "AD",
-      "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD\\AD.csproj",
+      "projectPath": "D:\\workDanil\\Проекты\\Tests\\AD\\AD\\AD.csproj",
       "packagesPath": "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\",
-      "outputPath": "D:\\workDanil\\Проекты\\my\\AD\\AD\\obj\\",
+      "outputPath": "D:\\workDanil\\Проекты\\Tests\\AD\\AD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -8541,8 +8541,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj": {
-              "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.BLL\\AD.BLL.csproj"
+            "D:\\workDanil\\Проекты\\Tests\\AD\\AD.BLL\\AD.BLL.csproj": {
+              "projectPath": "D:\\workDanil\\Проекты\\Tests\\AD\\AD.BLL\\AD.BLL.csproj"
             }
           }
         }

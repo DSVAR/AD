@@ -6013,11 +6013,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj",
+      "projectUniqueName": "D:\\workDanil\\Проекты\\Tests\\AD\\AD.Data\\AD.Data.csproj",
       "projectName": "AD.Data",
-      "projectPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\AD.Data.csproj",
+      "projectPath": "D:\\workDanil\\Проекты\\Tests\\AD\\AD.Data\\AD.Data.csproj",
       "packagesPath": "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\",
-      "outputPath": "D:\\workDanil\\Проекты\\my\\AD\\AD.Data\\obj\\",
+      "outputPath": "D:\\workDanil\\Проекты\\Tests\\AD\\AD.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
