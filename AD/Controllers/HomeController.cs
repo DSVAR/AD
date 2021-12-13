@@ -18,7 +18,10 @@ namespace AD.Controllers
         private readonly ILogger<HomeController> _logger;
         private UserService _UserService { get; }
         private UserMethods _userMethods { get; }
-        
+        [BindProperty]
+        public List<UserViewModel> UserViewModel { get; set; }
+
+       
 
 
         public HomeController(ILogger<HomeController> logger,  UserService userService, UserMethods userMethods)
@@ -71,7 +74,8 @@ namespace AD.Controllers
             return Redirect("/Home/Role");
         }
         [RoleValidate("Admin")]
-        public async Task<IActionResult> Remove(string email)
+        [HttpPost]
+        public async Task<IActionResult> Remove(string email,List<UserViewModel> userview)
         {
             var us = await _UserService.FindUserByEmail(email);
 
@@ -83,6 +87,14 @@ namespace AD.Controllers
             }
 
             return Redirect("/Home/Role");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Find(string fullname,List<UserViewModel> userview)
+        {
+          var us= await _userMethods.FindUser("Админ");
+
+            return View("~/Views/Home/Role.cshtml",us);
         }
 
       

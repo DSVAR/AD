@@ -66,6 +66,7 @@ namespace AD.BLL.Services
             var user = await _userManager.FindByEmailAsync(email);
             return _imapper.Map<UserViewModel>(user);
         }
+        
 
         public async Task<bool> IsInRole(UserViewModel user, string role)
         {

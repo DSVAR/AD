@@ -3,7 +3,7 @@ using AD.BLL.Services;
 using Microsoft.AspNetCore.Authentication;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using System.DirectoryServices.AccountManagement;
 using AD.BLL.JsonPattern;
@@ -69,8 +69,16 @@ namespace AD.BLL.Methods
                 return user;
             }
 
+        }
 
+        public async Task<List<UserViewModel>> FindUser(string fullname)
+        {
+            var users = await _userService.GetUsers();
+            var result = users.Where(u=>u.FullName.Contains(fullname)).ToList();
 
+           
+
+            return result;
         }
 
     }

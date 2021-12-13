@@ -1,15 +1,18 @@
-﻿@{
+﻿@using AD.BLL.ModelsDTO
+@model List<UserViewModel>
+
+@{
     ViewData["Title"] = "Role";
 
 }
 
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<form method="post" asp-controller="Home">
 
-@using AD.BLL.ModelsDTO;
-@using Microsoft.AspNetCore.Identity
-@model List<UserViewModel>
+    <div>
+        <input type="text" name="fullname" placeholder="Фамилия" />
+        <button asp-action="Find" type="submit">Найти</button>
+    </div>
 
-<form method="post" asp-controller="Home" enctype="multipart/form-data">
 
 
     <div class="grid-are ">
@@ -17,22 +20,25 @@
             <p>Пользователь</p>
         </div>
 
-        <div class="colum">
+        @*<div class="colum">
             <p>Дать права</p>
         </div>
         <div class="colum">
             <p>Забрать права</p>
-        </div>
+        </div>*@
 
 
 
 
         @foreach (var user in Model)
         {
-            <div class="colum">
-                <p>@user.UserName</p>
+            <div class="colum item">
+                <p class="child">@user.UserName</p>
+                <p class="child">Fullname</p>
+                <p class="child">email</p>
+                <p class="child">phone</p>
             </div>
-            if (!user.IsAdmin)
+            @*if (!user.IsAdmin)
             {
                 <div class="colum">
                     <button class="btn  btn-dark" asp-action="Creation" asp-route-email="@user.Email"> Дать права</button>
@@ -44,17 +50,35 @@
             else
             {
                 <div class="colum">
-                    <button disabled class="btn  btn-dark"  type="submit"> Дать права</button>
+                    <button disabled class="btn  btn-dark"> Дать права</button>
                 </div>
                 <div class="colum">
-                    <button class="btn btn-primary" type="submit" asp-action="Remove" asp-route-email="@user.Email"> Забрать права</button>
+                    <button class="btn btn-primary" type="submit" onclick="btn()" id="@user.Id"> Забрать права</button>
                 </div>
-            }
+            }*@
         }
 
     </div>
-
+    <button id="swer">sw</button>
 </form>
 
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 
+<script>
+    
+    function btn(event) {
+        function() {
+            alert(this.id)
+        }
+
+    }
+
+    $(document).ready(function () {
+        $('.btn').click(function () {
+            console.log(this.id);
+            debugger;
+        });
+    });
+
+</script>
