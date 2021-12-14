@@ -14,9 +14,9 @@
     text-align:center;
 }
 .item {
-    background-color: red;
     display: grid;
-    grid-template-columns: auto,auto,auto,auto;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items:center;
 }
 .child{   
     position: center;

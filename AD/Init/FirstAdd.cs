@@ -17,14 +17,18 @@ namespace AD.Init
             Email = "Admin@gmail.com",
             UserName = "Admin@gmail.com",
             FullName= "Админ Элитный",
-            PhoneNumber = "78965851486"
+            PhoneNumber = "78965851486",
+            Company="SomeCompany",
+            Title="Магистр эллектронных магистралей"
         };  
         private readonly static UserViewModel _testUser= new UserViewModel()
         {
             Email = "User@gmail.com",
             UserName = "User@gmail.com",
             FullName= "Юзверь Боковской",
-            PhoneNumber = "78965851486"
+            PhoneNumber = "78965851486",
+            Company = "SomeCompany",
+            Title = "Падаван эллектронных магистралей"
         };
 
 

@@ -20,65 +20,45 @@
             <p>Пользователь</p>
         </div>
 
-        @*<div class="colum">
-            <p>Дать права</p>
-        </div>
-        <div class="colum">
-            <p>Забрать права</p>
-        </div>*@
-
-
-
+    
 
         @foreach (var user in Model)
         {
-            <div class="colum item">
-                <p class="child">@user.UserName</p>
-                <p class="child">Fullname</p>
-                <p class="child">email</p>
-                <p class="child">phone</p>
+            <div class="colum">
+
+                <div class="item" name="@user.Email" >
+
+                    <p class="child">@user.UserName</p>
+                    <p class="child">@user.FullName</p>
+                    <p class="child">@user.Email</p>
+                    <p class="child">@user.PhoneNumber</p>
+
+                </div>
             </div>
-            @*if (!user.IsAdmin)
-            {
-                <div class="colum">
-                    <button class="btn  btn-dark" asp-action="Creation" asp-route-email="@user.Email"> Дать права</button>
-                </div>
-                <div class="colum">
-                    <button disabled class=" btn btn-primary" id="@user.Id" name="removePer"> Забрать права</button>
-                </div>
-            }
-            else
-            {
-                <div class="colum">
-                    <button disabled class="btn  btn-dark"> Дать права</button>
-                </div>
-                <div class="colum">
-                    <button class="btn btn-primary" type="submit" onclick="btn()" id="@user.Id"> Забрать права</button>
-                </div>
-            }*@
         }
 
     </div>
-    <button id="swer">sw</button>
 </form>
 
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 <script>
-    
-    function btn(event) {
-        function() {
-            alert(this.id)
-        }
 
-    }
+   
 
-    $(document).ready(function () {
-        $('.btn').click(function () {
-            console.log(this.id);
-            debugger;
-        });
-    });
+    $(".item").click(function () {
+        var name = $(this).attr('name');
+        window.location = "/Home/ViewUser?email=" + name;
+        //$.ajax({
+        //    type: "GET",
+        //    data: {email: name},
+        //    url: "/Home/ViewUser" ,
+        //    success:function(data) {
+        //        window.location = data;
+        //    }
+        //})
+    })
+
 
 </script>

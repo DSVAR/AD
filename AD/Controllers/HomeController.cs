@@ -21,16 +21,16 @@ namespace AD.Controllers
         [BindProperty]
         public List<UserViewModel> UserViewModel { get; set; }
 
-       
 
 
-        public HomeController(ILogger<HomeController> logger,  UserService userService, UserMethods userMethods)
+
+        public HomeController(ILogger<HomeController> logger, UserService userService, UserMethods userMethods)
         {
             _logger = logger;
             _UserService = userService;
             _userMethods = userMethods;
         }
-       
+
 
         public async Task<IActionResult> Register()
         {
@@ -40,7 +40,7 @@ namespace AD.Controllers
 
         public IActionResult Index()
         {
-          
+
             return View();
         }
 
@@ -49,33 +49,34 @@ namespace AD.Controllers
             return View();
         }
 
-      [RoleValidate("Admin")]
+       // [RoleValidate("Admin")]
         public async Task<IActionResult> Role()
         {
 
             var allUsers = await _UserService.GetUsers();
 
-        
+
             return View(allUsers);
-            
+
         }
-        [RoleValidate("Admin")]
+      //  [RoleValidate("Admin")]
 
         public async Task<IActionResult> Creation(string email)
         {
-            var us =await _UserService.FindUserByEmail(email);
+            var us = await _UserService.FindUserByEmail(email);
 
-            if (!us.IsAdmin) { 
-                await  _UserService.AddToRole(us, "Admin");
+            if (!us.IsAdmin)
+            {
+                await _UserService.AddToRole(us, "Admin");
                 us.IsAdmin = true;
                 await _UserService.UpdateUser(us);
             }
 
-            return Redirect("/Home/Role");
+            return View("~/Views/Home/ViewUser.cshtml", us);
         }
-        [RoleValidate("Admin")]
+       // [RoleValidate("Admin")]
         [HttpPost]
-        public async Task<IActionResult> Remove(string email,List<UserViewModel> userview)
+        public async Task<IActionResult> Remove(string email)
         {
             var us = await _UserService.FindUserByEmail(email);
 
@@ -86,25 +87,50 @@ namespace AD.Controllers
                 await _UserService.UpdateUser(us);
             }
 
-            return Redirect("/Home/Role");
+            return View("~/Views/Home/ViewUser.cshtml", us);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Find(string fullname,List<UserViewModel> userview)
+        public async Task<IActionResult> Find(string fullname)
         {
-          var us= await _userMethods.FindUser("Админ");
+            if (!string.IsNullOrEmpty(fullname))
+            {
+                var us = await _userMethods.FindUser(fullname);
 
-            return View("~/Views/Home/Role.cshtml",us);
+                return View("~/Views/Home/Role.cshtml", us);
+            }
+            else
+            {
+                return RedirectToAction("Role");
+            }
         }
 
-      
+      //  [RoleValidate("Admin")]
+        [HttpGet]
+        public async Task<IActionResult> ViewUser(string email)
+        {
+            if (!string.IsNullOrEmpty(email)) { 
+            var user = await _UserService.FindUserByEmail(email);
+            
+            return View(user);
+            }
+            else
+            {
+                return View();
+            }
+
+        }
+
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
 
-  
+
     }
 }

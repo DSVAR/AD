@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.DirectoryServices.AccountManagement;
 using AD.BLL.JsonPattern;
+using System.DirectoryServices;
 
 namespace AD.BLL.Methods
 {
@@ -58,14 +59,24 @@ namespace AD.BLL.Methods
             
             using (var context = new PrincipalContext(ContextType.Domain))
             {
-                
-                var users = Principal.FindByIdentity(context, userName);
+                List<object> mylist = new List<object>();
 
+                var users = Principal.FindByIdentity(context, userName);
+                var directoryEntry = users.GetUnderlyingObject() as DirectoryEntry;
+                
+                foreach(var i in directoryEntry.Properties) {
+                    mylist.Add(i);
+                   
+                }
+                //title, company
 
                 user.PhoneNumber = ((UserPrincipal)users).VoiceTelephoneNumber;
                 user.Email = ((UserPrincipal)users).EmailAddress;
                 user.UserName = ((UserPrincipal)users).EmailAddress;
                 user.FullName=  ((UserPrincipal)users).Name;
+                user.Company = directoryEntry.Properties["company"].Value.ToString();
+                user.Title= directoryEntry.Properties["title"].Value.ToString();
+                user.Nickname = directoryEntry.Properties["mailNickname"].Value.ToString();
                 return user;
             }
 
@@ -74,7 +85,7 @@ namespace AD.BLL.Methods
         public async Task<List<UserViewModel>> FindUser(string fullname)
         {
             var users = await _userService.GetUsers();
-            var result = users.Where(u=>u.FullName.Contains(fullname)).ToList();
+            var result = users.Where(u=>u.FullName.ToLower().Contains(fullname.ToLower())).ToList();
 
            
 
