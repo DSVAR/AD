@@ -66,7 +66,14 @@ namespace AD.BLL.Services
             var user = await _userManager.FindByEmailAsync(email);
             return _imapper.Map<UserViewModel>(user);
         }
-        
+
+        public async Task<UserViewModel> FindUserByUserName(string email)
+        {
+            var user = await _userManager.FindByNameAsync(email);
+            return _imapper.Map<UserViewModel>(user);
+        }
+
+
 
         public async Task<bool> IsInRole(UserViewModel user, string role)
         {
@@ -83,6 +90,11 @@ namespace AD.BLL.Services
             return await _userManager.UpdateAsync(user);
         }
 
+
+        public async Task<IList<System.Security.Claims.Claim>> GetClaimsUserAsync(UserViewModel user)
+        {
+            return await _userManager.GetClaimsAsync(user);
+        }
 
         public string GetUserName()
         {

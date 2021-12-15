@@ -15,7 +15,7 @@ namespace AD.Init
         private readonly static UserViewModel _admin = new UserViewModel()
         {
             Email = "Admin@gmail.com",
-            UserName = "Admin@gmail.com",
+            UserName = "Admin",
             FullName= "Админ Элитный",
             PhoneNumber = "78965851486",
             Company="SomeCompany",
@@ -24,7 +24,7 @@ namespace AD.Init
         private readonly static UserViewModel _testUser= new UserViewModel()
         {
             Email = "User@gmail.com",
-            UserName = "User@gmail.com",
+            UserName = "User",
             FullName= "Юзверь Боковской",
             PhoneNumber = "78965851486",
             Company = "SomeCompany",

@@ -1,0 +1,24 @@
+﻿.panel{
+    display:grid;
+    grid-template-columns:20% 60% 20%;
+    overflow-x:hidden;
+}
+
+.panel-item {
+    margin: 0.5em;
+    
+}
+button.panel-item {
+   
+}
+.panel-center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.p-item{
+    margin:0;
+}
+.p-margin{
+    margin-left:1vw;
+}

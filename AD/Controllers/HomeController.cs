@@ -9,6 +9,8 @@ using AD.AttributeValidate;
 using AD.BLL.Services;
 using AD.BLL.Methods;
 using System.Collections.Generic;
+using System.Security.Claims;
+using System.Net;
 
 namespace AD.Controllers
 {
@@ -49,7 +51,6 @@ namespace AD.Controllers
             return View();
         }
 
-       // [RoleValidate("Admin")]
         public async Task<IActionResult> Role()
         {
 
@@ -59,8 +60,8 @@ namespace AD.Controllers
             return View(allUsers);
 
         }
-      //  [RoleValidate("Admin")]
 
+       [RoleValidate("Admin")]
         public async Task<IActionResult> Creation(string email)
         {
             var us = await _UserService.FindUserByEmail(email);
@@ -74,7 +75,8 @@ namespace AD.Controllers
 
             return View("~/Views/Home/ViewUser.cshtml", us);
         }
-       // [RoleValidate("Admin")]
+
+        [RoleValidate("Admin")]
         [HttpPost]
         public async Task<IActionResult> Remove(string email)
         {
@@ -105,7 +107,7 @@ namespace AD.Controllers
             }
         }
 
-      //  [RoleValidate("Admin")]
+       
         [HttpGet]
         public async Task<IActionResult> ViewUser(string email)
         {
@@ -122,6 +124,28 @@ namespace AD.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult> GetClaims()
+        {
+            var userName = _UserService.GetUserName();
+            var user = await _UserService.FindUserByUserName(userName);
+
+            var userIdentity = new ClaimsIdentity();
+
+            var roleClaim = new Claim(ClaimTypes.Role, "Admin");
+            var userClaim = new Claim(ClaimTypes.Name, "swer");
+
+            userIdentity.AddClaim(roleClaim);
+            userIdentity.AddClaim(userClaim);
+
+
+            var userPrincipal = new ClaimsPrincipal(userIdentity);
+            var pri = HttpContext.User;
+            HttpContext.User = userPrincipal;
+            var pris = HttpContext.User;
+
+            return Ok(); ;
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

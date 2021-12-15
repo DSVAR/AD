@@ -1,40 +1,42 @@
 ﻿@using AD.BLL.ModelsDTO
 @model UserViewModel
-@{         
+@{
     ViewData["Title"] = "Info user";
- }
+}
 
-    <form method="post" asp-controller="Home">
-        <div class="border_dark panel">
-            <div class="panel-item">
-                <p class="p-item">почта:</p>
-                <p class="p-margin">@Model.Email</p>
-                <p class="p-item">Имя: </p>
-                <p class="p-margin">@Model.FullName</p>
-                <p class="p-item">Nickname:</p>
-                <p class="p-margin">@Model.Nickname</p>
-            </div>
-            <div class="panel-center">
-                
-                @if (@Model.IsAdmin)
+<form method="post" asp-controller="Home">
+    <div class="border_dark panel">
+        <div class="panel-item">
+            <p class="p-item">почта:</p>
+            <p class="p-margin">@Model.Email</p>
+            <p class="p-item">Имя: </p>
+            <p class="p-margin">@Model.FullName</p>
+        </div>
+        <div class="panel-center">
+            @if (@Model.IsAdmin) { 
+                @if (!User.Identity.Name.Contains(Model.UserName))
                 {
-                    <button class="btn btn-info" asp-action="Remove" asp-route-email="@Model.Email">Забрать права</button>
+                    @if (@Model.IsAdmin)
+                    {
+                        <button class="btn btn-info" asp-action="Remove" asp-route-email="@Model.Email">Забрать права</button>
+                    }
+                    else
+                    {
+                        <button class="btn btn-danger" asp-action="Creation" asp-route-email="@Model.Email">Дать права</button>
+                    }
                 }
-                else
-                {
-                    <button  class="btn btn-danger" asp-action="Creation" asp-route-email="@Model.Email">Дать права</button>
-                }
-            </div>
-            <div class="panel-item">
-                <p class="p-item">Номер:</p>
-                <p class="p-margin"> @Model.PhoneNumber</p>
-                <p class="p-item">Компания:</p>
-                <p class="p-margin">@Model.Company</p>
-                <p class="p-item">Должность:</p>
-                <p class="p-margin">@Model.Title</p>
-
-            </div>
-
+            }
+        </div>
+        <div class="panel-item">
+            <p class="p-item">Номер:</p>
+            <p class="p-margin"> @Model.PhoneNumber</p>
+            <p class="p-item">Компания:</p>
+            <p class="p-margin">@Model.Company</p>
+            <p class="p-item">Должность:</p>
+            <p class="p-margin">@Model.Title</p>
 
         </div>
-    </form>
+
+
+    </div>
+</form>

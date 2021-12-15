@@ -72,11 +72,10 @@ namespace AD.BLL.Methods
 
                 user.PhoneNumber = ((UserPrincipal)users).VoiceTelephoneNumber;
                 user.Email = ((UserPrincipal)users).EmailAddress;
-                user.UserName = ((UserPrincipal)users).EmailAddress;
+                user.UserName = directoryEntry.Properties["mailNickname"].Value.ToString();
                 user.FullName=  ((UserPrincipal)users).Name;
                 user.Company = directoryEntry.Properties["company"].Value.ToString();
                 user.Title= directoryEntry.Properties["title"].Value.ToString();
-                user.Nickname = directoryEntry.Properties["mailNickname"].Value.ToString();
                 return user;
             }
 

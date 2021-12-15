@@ -1,0 +1,16 @@
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.BLL.deps.json
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.BLL.runtimeconfig.json
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.BLL.runtimeconfig.dev.json
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.BLL.dll
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.BLL.pdb
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.Data.dll
+D:\workDanil\Проекты\Tests\AD\AD.BLL\bin\Release\netcoreapp3.1\AD.Data.pdb
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.csproj.AssemblyReference.cache
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.GeneratedMSBuildEditorConfig.editorconfig
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.AssemblyInfoInputs.cache
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.AssemblyInfo.cs
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.csproj.CoreCompileInputs.cache
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.csproj.CopyComplete
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.dll
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.pdb
+D:\workDanil\Проекты\Tests\AD\AD.BLL\obj\Release\netcoreapp3.1\AD.BLL.genruntimeconfig.cache
