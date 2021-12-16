@@ -36,6 +36,7 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Role">Role</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GetClaims">claim</a>
                         </li>
                     </ul>
                 </div>
@@ -46,6 +47,7 @@
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
     </div>
 
     <footer class="border-top footer text-muted">
@@ -58,25 +60,24 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/registerUser.js"></script>
-
-
+    
     <script>
-        $(document).ready(function () {
-            var preloader = false;
-            $.ajax({
-                type: "post",
-                url: "/Home/GetClaims",
-                success: function (claim) {
-                    alert("1");
-                    console.log();
-                    debugger;
-                },
-                error: function (claim) {
-                    alert("error");
-                    console.log(claim);
-                    debugger;
-                }
-            })
+        $(document).ready(function () {        
+
+            //$.ajax({
+            //    type: "post",
+            //    url: "/Home/GetClaims",
+            //    success: function (claim) {
+            //        alert("1");
+            //        console.log();
+                    
+            //    },
+            //    error: function (claim) {
+            //        alert("error");
+            //        console.log(claim);
+            //        debugger;
+            //    }
+            //})
         })
     </script>
 

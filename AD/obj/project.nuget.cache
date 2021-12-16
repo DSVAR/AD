@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ANKArSJV+q/+55N9sdFFcWP97pmz8/BPYiNDDVI8CQWfyq/lSPDvQsW3+QlXYHTDdl/y/veYoKe+D3TxDBwg9g==",
+  "dgSpecHash": "ELe4DWHmP8PzuWMxz1uZtXpAw7vglAh6oQXDaTCj7/BNKXUuWoiEWqtehzbiR0zlalqa3fGF8k5I4bYWwfidDQ==",
   "success": true,
   "projectFilePath": "D:\\workDanil\\Проекты\\Tests\\AD\\AD\\AD.csproj",
   "expectedPackageFiles": [
@@ -49,7 +49,7 @@
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.extensions.webencoders\\2.2.0\\microsoft.extensions.webencoders.2.2.0.nupkg.sha512",
-    "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.identity.client\\4.14.0\\microsoft.identity.client.4.14.0.nupkg.sha512",
+    "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.identity.client\\4.39.0\\microsoft.identity.client.4.39.0.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.identitymodel.clients.activedirectory\\5.2.9\\microsoft.identitymodel.clients.activedirectory.5.2.9.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\5.6.0\\microsoft.identitymodel.jsonwebtokens.5.6.0.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\microsoft.identitymodel.logging\\5.6.0\\microsoft.identitymodel.logging.5.6.0.nupkg.sha512",
@@ -118,7 +118,6 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\NurmekhametovDI\\.nuget\\packages\\system.net.http\\4.3.4\\system.net.http.4.3.4.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.nameresolution\\4.3.0\\system.net.nameresolution.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.primitives\\4.3.0\\system.net.primitives.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.net.sockets\\4.3.0\\system.net.sockets.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.objectmodel\\4.3.0\\system.objectmodel.4.3.0.nupkg.sha512",

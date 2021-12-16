@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AD.Init;
+using AD.Data.Models;
 
 namespace AD
 {
@@ -33,6 +34,11 @@ namespace AD
             services.AddControllersWithViews();
 
             services.AddScoped<FirstAdd>();
+            services.AddScoped<MyClaimsIdentityUser>();
+            services.AddMvc().AddMvcOptions(options =>
+            {
+                options.Filters.AddService(typeof(MyClaimsIdentityUser));
+            });
 
             ConfigService.InitService(services, Configuration);
         }

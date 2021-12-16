@@ -392,6 +392,7 @@ D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.csproj.CopyCompl
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.dll
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.pdb
 D:\workDanil\Проекты\my\AD\AD\obj\Debug\netcoreapp3.1\AD.genruntimeconfig.cache
+D:\workDanil\Проекты\Tests\AD\AD\bin\Debug\netcoreapp3.1\.filenesting.json
 D:\workDanil\Проекты\Tests\AD\AD\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\workDanil\Проекты\Tests\AD\AD\bin\Debug\netcoreapp3.1\appsettings.json
 D:\workDanil\Проекты\Tests\AD\AD\bin\Debug\netcoreapp3.1\AD.exe
@@ -496,6 +497,7 @@ D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\AD.TagHelpers.in
 D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\AD.TagHelpers.output.cache
 D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\AD.RazorCoreGenerate.cache
 D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\Razor\Views\Error\NotAcces.cshtml.g.cs
+D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\Razor\Views\Home\GetClaims.cshtml.g.cs
 D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\workDanil\Проекты\Tests\AD\AD\obj\Debug\netcoreapp3.1\Razor\Views\Home\Role.cshtml.g.cs

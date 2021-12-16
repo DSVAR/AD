@@ -30,6 +30,7 @@ namespace AD.BLL.Services
             _repo = repo;
             _httpContextAccsessor= httpContextAccsessor;
         }
+        
         public async Task<IdentityResult> AddRole(string name)
         {
            return await _roleManager.CreateAsync(new IdentityRole(name));
@@ -45,6 +46,7 @@ namespace AD.BLL.Services
 
             return await _userManager.AddToRoleAsync(user, role);
         }
+
 
         public async Task<IdentityResult> CreateUser(UserViewModel user)
         {
@@ -73,7 +75,10 @@ namespace AD.BLL.Services
             return _imapper.Map<UserViewModel>(user);
         }
 
-
+        public async Task<List<IdentityRole> > GetRoles()
+        {
+            return await _roleManager.Roles.ToListAsync();
+        }
 
         public async Task<bool> IsInRole(UserViewModel user, string role)
         {
@@ -93,12 +98,12 @@ namespace AD.BLL.Services
 
         public async Task<IList<System.Security.Claims.Claim>> GetClaimsUserAsync(UserViewModel user)
         {
+          
             return await _userManager.GetClaimsAsync(user);
         }
 
         public string GetUserName()
-        {
-            
+        {            
             return _httpContextAccsessor.HttpContext.User.Identity.Name.Remove(0, _httpContextAccsessor.HttpContext.User.Identity.Name.IndexOf("\\")).Replace("\\", "");
         }
 

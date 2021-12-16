@@ -124,35 +124,33 @@ namespace AD.Controllers
         }
 
 
-        [HttpPost]
         public async Task<IActionResult> GetClaims()
         {
-            var userName = _UserService.GetUserName();
-            var user = await _UserService.FindUserByUserName(userName);
+      //      var userName = _UserService.GetUserName();
+      //      var user = await _UserService.FindUserByUserName(userName);
 
-            var userIdentity = new ClaimsIdentity();
+      //      var userIdentity = new ClaimsIdentity();
 
-            var roleClaim = new Claim(ClaimTypes.Role, "Admin");
-            var userClaim = new Claim(ClaimTypes.Name, "swer");
+      //      var roleClaim = new Claim(ClaimTypes.Role, "Admin");
+      //   //   var userClaim = new Claim(ClaimTypes.Name, "User");
 
-            userIdentity.AddClaim(roleClaim);
-            userIdentity.AddClaim(userClaim);
+      //      userIdentity.AddClaim(roleClaim);
+      ////      userIdentity.AddClaim(userClaim);
+      //      var usCLaims = _UserService.GetClaimsUserAsync(user).Result;
 
+      //      var userPrincipal = new ClaimsPrincipal(userIdentity);
+      //      HttpContext.User = userPrincipal;
 
-            var userPrincipal = new ClaimsPrincipal(userIdentity);
-            var pri = HttpContext.User;
-            HttpContext.User = userPrincipal;
-            var pris = HttpContext.User;
-
-            return Ok(); ;
+            
+            return View() ;
         }
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
 
 
 
