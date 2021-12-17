@@ -60,3 +60,4 @@ D:\workDanil\Проекты\Tests\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csp
 D:\workDanil\Проекты\Tests\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.dll
 D:\workDanil\Проекты\Tests\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.pdb
 D:\workDanil\Проекты\Tests\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.genruntimeconfig.cache
+D:\workDanil\Проекты\Tests\AD\AD.Data\obj\Debug\netcoreapp3.1\AD.Data.csproj.AssemblyReference.cache

@@ -8,6 +8,7 @@
 
 <form method="post" asp-controller="Home">
 
+
     <div>
         <input type="text" name="fullname" placeholder="Фамилия" />
         <button asp-action="Find" type="submit">Найти</button>
@@ -19,14 +20,12 @@
         <div class="colum">
             <p>Пользователь</p>
         </div>
-
-    
-
+  
         @foreach (var user in Model)
         {
             <div class="colum">
 
-                <div class="item" name="@user.Email" >
+                <div class="item" name="@user.Email">
 
                     <p class="child">@user.Title</p>
                     <p class="child">@user.FullName</p>
@@ -45,7 +44,9 @@
 
 <script>
 
-   
+    function checkGroup() {
+        return true;
+    };
 
     $(".item").click(function () {
         var name = $(this).attr('name');

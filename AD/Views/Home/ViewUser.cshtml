@@ -4,8 +4,12 @@
     ViewData["Title"] = "Info user";
 }
 
+
 <form method="post" asp-controller="Home">
+
+   
     <div class="border_dark panel">
+     
         <div class="panel-item">
             <p class="p-item">почта:</p>
             <p class="p-margin">@Model.Email</p>
@@ -13,7 +17,10 @@
             <p class="p-margin">@Model.FullName</p>
         </div>
         <div class="panel-center">
-            @if (@Model.IsAdmin) { 
+
+
+            @if (User.IsInRole("Admin"))
+            {
                 @if (!User.Identity.Name.Contains(Model.UserName))
                 {
                     @if (@Model.IsAdmin)

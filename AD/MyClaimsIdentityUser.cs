@@ -33,23 +33,20 @@ namespace AD
             var user = _userService.FindUserByUserName(userName).Result;
             var roles = _userService.GetRoles().Result;
             var userIdentity = new ClaimsIdentity();
-            var roleClaim = new Claim(ClaimTypes.Role, "Admin");
 
 
             foreach (var role in roles)
             {
-                if (_userService.IsInRole(user, role.ToString() ).Result)
+                if (_userService.IsInRole(user, role.Name ).Result)
                 {
                     //userIdentity +role claim
+                    userIdentity.AddClaim(new Claim(ClaimTypes.Role, role.Name));
                 }
             }
-
            
+               var userClaim = new Claim(ClaimTypes.Name, userName);
 
-            var roleClaim = new Claim(ClaimTypes.Role, "Admin");
-               var userClaim = new Claim(ClaimTypes.Name, "User");
 
-            userIdentity.AddClaim(roleClaim);
             userIdentity.AddClaim(userClaim);
             //var usCLaims = _UserService.GetClaimsUserAsync(user).Result;
 

@@ -10,6 +10,6 @@ namespace AD.Data.Models
         public string FullName { get; set; }
         public string Company { get; set; }
         public string Title { get; set; }
-
+        public string Departaments { get; set; }
     }
 }

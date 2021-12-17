@@ -60,13 +60,18 @@ namespace AD.BLL.Methods
             using (var context = new PrincipalContext(ContextType.Domain))
             {
                 List<object> mylist = new List<object>();
+                List<object> de = new List<object>();
 
-                var users = Principal.FindByIdentity(context, userName);
-                var directoryEntry = users.GetUnderlyingObject() as DirectoryEntry;
                 
-                foreach(var i in directoryEntry.Properties) {
-                    mylist.Add(i);
-                   
+                var users = UserPrincipal.FindByIdentity(context, userName);
+                var directoryEntry = users.GetUnderlyingObject() as DirectoryEntry;
+                var directorySearches = new PrincipalSearcher(new UserPrincipal(context));
+
+                var group = users.GetAuthorizationGroups();
+
+          
+                foreach (var i in group) {
+                    user.Departaments += " "+i+ " ;";                   
                 }
                 //title, company
 
@@ -84,9 +89,7 @@ namespace AD.BLL.Methods
         public async Task<List<UserViewModel>> FindUser(string fullname)
         {
             var users = await _userService.GetUsers();
-            var result = users.Where(u=>u.FullName.ToLower().Contains(fullname.ToLower())).ToList();
-
-           
+            var result = users.Where(u=>u.FullName.ToLower().Contains(fullname.ToLower())).ToList();          
 
             return result;
         }
