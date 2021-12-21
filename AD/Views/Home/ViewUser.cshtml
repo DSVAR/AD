@@ -3,36 +3,46 @@
 @{
     ViewData["Title"] = "Info user";
 }
-
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
 
 <form method="post" asp-controller="Home">
 
-   
-    <div class="border_dark panel">
-     
+
+    <div class="border-red panel">
+
         <div class="panel-item">
             <p class="p-item">почта:</p>
             <p class="p-margin">@Model.Email</p>
             <p class="p-item">Имя: </p>
             <p class="p-margin">@Model.FullName</p>
         </div>
-        <div class="panel-center">
-
-
+        <div class="gridRow panel-center">
             @if (User.IsInRole("Admin"))
             {
-                @if (!User.Identity.Name.Contains(Model.UserName))
+                @if (User.Identity.Name != Model.UserName)
                 {
-                    @if (@Model.IsAdmin)
-                    {
-                        <button class="btn btn-info" asp-action="Remove" asp-route-email="@Model.Email">Забрать права</button>
-                    }
-                    else
-                    {
-                        <button class="btn btn-danger" asp-action="Creation" asp-route-email="@Model.Email">Дать права</button>
-                    }
+                    <div class="panel-center">
+
+
+                        @if (@Model.IsAdmin)
+                        {
+                            <button class="btn btn-info" asp-action="Remove" asp-route-email="@Model.Email">Забрать права</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger" asp-action="Creation" asp-route-email="@Model.Email">Дать права</button>
+                        }
+
+
+                    </div>
                 }
             }
+            <div class="panel-center">
+                <p class="p-item">Группы:</p>
+                <p class="p-margin">@Model.Departaments</p>
+            </div>
+
+
         </div>
         <div class="panel-item">
             <p class="p-item">Номер:</p>
@@ -47,3 +57,17 @@
 
     </div>
 </form>
+
+
+<script>
+    $(document).ready(function () {
+        if ($(".btn-info").length) {
+            $(".panel").addClass("border-blue");
+            $(".panel").removeClass("border-red");
+        }
+        if ($(".btn-danger").length) {
+            $(".panel").removeClass("border-blue");
+            $(".panel").addClass("border-red");
+        }
+    })
+</script>

@@ -15,7 +15,7 @@ namespace AD
 {
     public class MyClaimsIdentityUser : IActionFilter
     {
-
+        //Заглушка для авторизации пользователя с базы.
         private readonly IHttpContextAccessor _httpContextAccsessor;
         private readonly UserService _userService;
 
@@ -25,38 +25,38 @@ namespace AD
             _userService = userService;
         }
 
-
+        //выполнение после загрузки
         public void OnActionExecuted(ActionExecutedContext context)
         {
-          
+
             var userName = _userService.GetUserName();
             var user = _userService.FindUserByUserName(userName).Result;
-            var roles = _userService.GetRoles().Result;
-            var userIdentity = new ClaimsIdentity();
-
-
-            foreach (var role in roles)
+            if (user != null)
             {
-                if (_userService.IsInRole(user, role.Name ).Result)
+                var roles = _userService.GetRoles().Result;
+                var userIdentity = new ClaimsIdentity(user.Id);
+
+                
+                foreach (var role in roles)
                 {
-                    //userIdentity +role claim
-                    userIdentity.AddClaim(new Claim(ClaimTypes.Role, role.Name));
+                    if (_userService.IsInRole(user, role.Name).Result)
+                    {
+                        userIdentity.AddClaim(new Claim(ClaimTypes.Role, role.Name));
+                    }
                 }
+
+                userIdentity.AddClaim(new Claim(ClaimTypes.Name, userName));
+                userIdentity.AddClaim(new Claim(ClaimTypes.NameIdentifier,user.Id));
+
+                var userPrincipal = new ClaimsPrincipal(userIdentity);
+
+                _httpContextAccsessor.HttpContext.User = userPrincipal;
             }
-           
-               var userClaim = new Claim(ClaimTypes.Name, userName);
-
-
-            userIdentity.AddClaim(userClaim);
-            //var usCLaims = _UserService.GetClaimsUserAsync(user).Result;
-
-            var userPrincipal = new ClaimsPrincipal(userIdentity);
-            _httpContextAccsessor.HttpContext.User = userPrincipal;
         }
 
         public void OnActionExecuting(ActionExecutingContext context)
         {
-           
+
         }
     }
 }

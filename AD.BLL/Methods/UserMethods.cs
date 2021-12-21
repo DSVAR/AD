@@ -23,7 +23,7 @@ namespace AD.BLL.Methods
             _jsonPattern = jsonPattern;
         }
 
-
+        //добавление пользователя возрат Json
         public async Task<string> AddUserBD()
         {
             try
@@ -51,7 +51,7 @@ namespace AD.BLL.Methods
                 return await _jsonPattern.HttpResponse(403, "Was some errors", ex);
             }
         }
-
+        //получение информации с АД
         public UserViewModel GetInfoBoutUser()
         {
 

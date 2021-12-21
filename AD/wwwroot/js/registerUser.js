@@ -4,7 +4,7 @@
         url: '/Home/Register',
         success: function (data) {
             var json = JSON.parse(data);
-          
+
 
             if (json["CodeStatus"] == 201) {
                 //alert("Ea");

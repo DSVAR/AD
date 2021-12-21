@@ -21,7 +21,8 @@ namespace AD.BLL.Services
         private readonly IRepository<User> _repo;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IHttpContextAccessor _httpContextAccsessor;
-        public UserService(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IMapper imapper, IRepository<User> repo, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccsessor)
+        public UserService(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, IMapper imapper, 
+            IRepository<User> repo, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccsessor)
         {
             _roleManager = roleManager;
             _userManager = userManager;
@@ -69,9 +70,9 @@ namespace AD.BLL.Services
             return _imapper.Map<UserViewModel>(user);
         }
 
-        public async Task<UserViewModel> FindUserByUserName(string email)
+        public async Task<UserViewModel> FindUserByUserName(string name)
         {
-            var user = await _userManager.FindByNameAsync(email);
+            var user = await _userManager.FindByNameAsync(name);
             return _imapper.Map<UserViewModel>(user);
         }
 

@@ -42,8 +42,7 @@ namespace AD.AttributeValidate
                         controller="Error",
                         action="NotAcces"
                     }
-                )) ;
-                return;
+                )) ;               
             }
             
         }
