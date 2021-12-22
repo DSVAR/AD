@@ -26,6 +26,7 @@ namespace AD.BLL.Methods
         //добавление пользователя возрат Json
         public async Task<string> AddUserBD()
         {
+            //добавление пользователя в бд
             try
             {
                 var user = GetInfoBoutUser();
@@ -54,7 +55,7 @@ namespace AD.BLL.Methods
         //получение информации с АД
         public UserViewModel GetInfoBoutUser()
         {
-
+            
             var userName = _userService.GetUserName();
             
             using (var context = new PrincipalContext(ContextType.Domain))

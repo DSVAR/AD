@@ -62,7 +62,33 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js"></script>
     <script src="~/js/registerUser.js"></script>
-    <script src="~/js/CheckGroupUser.js"></script>
+     <script src="~/js/CheckGroupUser.js" ></script>
+    @*<script>
+        $(document).ready(function () {
+
+            $(".hides").hide();
+            $.ajax({
+
+                url: "/Home/GetGroup",
+                method: "post",
+                data: {
+                    group: 'lkkj'
+                },
+                success: function (data) {
+                    let json = JSON.parse(data);
+
+                    if (json["CodeStatus"] == 200) {
+                        $(".hides").show();
+                    }
+
+                    if (json["CodeStatus"] == 404) {
+                        location.reload();
+                    }
+                }
+
+            });
+
+        })</script>*@
 
     @RenderSection("Scripts", required: false)
 </body>

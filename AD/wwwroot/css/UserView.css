@@ -22,9 +22,9 @@
     display:grid;
     grid-template-rows:auto auto;
 }
-.border-red{
-    border:inset 2px red;
+.border-red {
+    border: ridge 0.3vw red;
 }
-.border-blue{
-    border:inset 2px blue;
+.border-blue {
+    border: ridge 0.3vw #29b1cc;
 }

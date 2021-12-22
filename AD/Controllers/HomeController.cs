@@ -108,30 +108,48 @@ namespace AD.Controllers
                 return RedirectToAction("Role");
             }
         }
-        // проверка группы для скрытия элементов от пользователя !!!!!!!!!!!!!!!!!!!!!!проверить
+        //проверка пользователя на группы
         [HttpPost]
-        public Task<string> GetGroup(string group)
+        public Task<string> GetGroup(string group = null, string[] groups = null)
         {
+
             var user = _UserService.FindUserByUserName(_UserService.GetUserName()).Result;
-            if (user != null) {
-                if (user.Departaments.Contains(group)) {
-                    return _json.HttpResponse(200, "true");
+            if (user != null && group != null || user != null && groups != null)
+            {
+
+                if (group != null)
+                {
+                    if (user.Departaments.ToUpper().Contains(group.ToUpper()))
+                    {
+                        return _json.HttpResponse(200, "true");
+                    }
                 }
                 else
                 {
-                    return _json.HttpResponse(204, "false");
+                    foreach (var g in groups)
+                    {
+                        if (user.Departaments.ToUpper().Contains(g.ToUpper()))
+                        {
+                            return _json.HttpResponse(200, "true");
+                        }
+                    }
                 }
+
+
             }
             else
             {
-                return _json.HttpResponse(404, "false", "not found users");
+                return _json.HttpResponse(404, "false", "not found users or group");
             }
+            return _json.HttpResponse(204, "false");
+
         }
         //посмотреть данные пользователя
         [HttpGet]
         public async Task<IActionResult> ViewUser(string email)
         {
-            if (!string.IsNullOrEmpty(email)) {
+            if (!string.IsNullOrEmpty(email))
+            {
                 var user = await _UserService.FindUserByEmail(email);
 
                 return View(user);
@@ -144,7 +162,7 @@ namespace AD.Controllers
         }
 
         [GroupValidate("web")]
-        public  IActionResult GetClaims()
+        public IActionResult GetClaims()
         {
             return View();
         }

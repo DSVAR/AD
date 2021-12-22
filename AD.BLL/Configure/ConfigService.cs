@@ -18,6 +18,7 @@ namespace AD.BLL.Configure
     {
         public static IServiceCollection InitService(IServiceCollection services, IConfiguration configuration)
         {
+            //добавление сервисов
             services.AddIdentity<User, IdentityRole>().AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationContext>();
 
@@ -33,6 +34,7 @@ namespace AD.BLL.Configure
             
             services.AddDbContext<ApplicationContext>(options =>
             {
+                //рабочая/домашняя SQL в родительском проекте есть Factory, при изменении бд менять и там.
                 options.UseSqlServer(configuration.GetConnectionString("Local"),
                     b => b.MigrationsAssembly("AD.Data")
                 ); //Work
