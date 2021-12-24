@@ -13,6 +13,7 @@ using System.Security.Claims;
 using System.Net;
 using AD.BLL.JsonPattern;
 using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace AD.Controllers
 {
@@ -112,36 +113,41 @@ namespace AD.Controllers
         [HttpPost]
         public Task<string> GetGroup(string group = null, string[] groups = null)
         {
-
             var user = _UserService.FindUserByUserName(_UserService.GetUserName()).Result;
-            if (user != null && group != null || user != null && groups != null)
+
+            if (user.Departaments != null)
             {
 
-                if (group != null)
+                var groupsUser = user.Departaments.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                
+
+
+                if (user != null && group != null || user != null && groups != null)
                 {
-                    if (user.Departaments.ToUpper().Contains(group.ToUpper()))
+
+                    if (group != null)
                     {
-                        return _json.HttpResponse(200, "true");
-                    }
-                }
-                else
-                {
-                    foreach (var g in groups)
-                    {
-                        if (user.Departaments.ToUpper().Contains(g.ToUpper()))
+                        foreach (var g in groupsUser)
                         {
-                            return _json.HttpResponse(200, "true");
+                            if(g.Replace(" ", "").ToUpper()==group.Replace(" ", "").ToUpper()) return _json.HttpResponse(200, "true");
                         }
+                      
                     }
-                }
-
-
+                    else
+                    {
+                        foreach (var g in groups)
+                        {
+                            foreach(var gU in groupsUser)
+                            {
+                                if(g.Replace(" ","").ToUpper()==gU.Replace(" ", "").ToUpper()) 
+                                    return _json.HttpResponse(200, "true");
+                            }
+                        }
+                        return _json.HttpResponse(204, "false");
+                    }
+                }             
             }
-            else
-            {
-                return _json.HttpResponse(404, "false", "not found users or group");
-            }
-            return _json.HttpResponse(204, "false");
+            return _json.HttpResponse(404, "false", "not found users or group");
 
         }
         //посмотреть данные пользователя
@@ -161,7 +167,7 @@ namespace AD.Controllers
 
         }
 
-        [GroupValidate("web")]
+        [GroupValidate("цоб-web")]
         public IActionResult GetClaims()
         {
             return View();

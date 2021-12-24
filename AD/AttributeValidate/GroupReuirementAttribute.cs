@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Routing;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AD.AttributeValidate
 {
@@ -10,11 +13,11 @@ namespace AD.AttributeValidate
         private UserService _userService { get; }
         private string[] _groups=null;
         private string _group;
-           
+        private List<string> _groupOfUser=new List<string>();
+        
         public GroupReuirementAttribute( UserService userService, string group=null, string[] groups=null)
         {
             _userService = userService;
-
             _group = group;
             _groups = groups;
         }
@@ -24,25 +27,39 @@ namespace AD.AttributeValidate
             var userName = _userService.GetUserName();
             var user = _userService.FindUserByUserName(userName).Result;
 
-            if (_group != null)
+            if (user.Departaments != null)
             {
-                if (user.Departaments.ToUpper().Contains(_group.ToUpper()))
+
+                var groupsUser = user.Departaments.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+
+
+                if (user != null && _group != null || user != null && _groups != null)
                 {
-                    return;
-                }
-            }
-            else
-            {
-                foreach (var d in _groups)
-                {
-                    if (user.Departaments.ToUpper().Contains(d.ToUpper()))
+
+                    if (_group != null)
                     {
-                        return;
+                        foreach (var g in groupsUser)
+                        {
+                            if (g.Replace(" ", "").ToUpper() == _group.Replace(" ", "").ToUpper()) return ;
+                        }
+
+                    }
+                    else
+                    {
+                        foreach (var g in _groups)
+                        {
+                            foreach (var gU in groupsUser)
+                            {
+                                if (g.Replace(" ", "").ToUpper() == gU.Replace(" ", "").ToUpper())
+                                    return ;
+                            }
+                        }
                     }
                 }
             }
 
-             context.Result = new RedirectToRouteResult(new RouteValueDictionary(
+            context.Result = new RedirectToRouteResult(new RouteValueDictionary(
                 new
                 {
                     controller = "Error",

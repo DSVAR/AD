@@ -1,10 +1,9 @@
 ﻿$(document).ready(function () {
     $(".hides").hide();
-    console.log("122");
     $.ajax({
         data: {
           //  'group': 'swer',
-            groups:["1","2","цоб-WEB"]
+            groups:["web","swe","цоб-WEB"]
         },
         url: "/Home/GetGroup",
         method: "POST",
